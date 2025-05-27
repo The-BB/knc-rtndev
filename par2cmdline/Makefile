@@ -1,20 +1,21 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=par2cmdline
-PKG_VERSION:=0.8.1
+PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=9935dbf808cfc30f6e08e85645a70e38f555eba5
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Parchive/par2cmdline
-PKG_MIRROR_HASH:=d04173574630407186ec312e305e1029348bde6e3e0685a0d4c82372d97d4bbd
+PKG_MIRROR_HASH:=a4645eb682e4ea421d4d08f7313c26cd4b54a586bf59af73cc775a620171403d
+
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -22,12 +23,11 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/par2cmdline
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=+libstdcpp
-	TITLE:=file verification and repair tool
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=file verification and repair tool
+  URL:=https://parchive.github.io
+  DEPENDS:=+libstdcpp
 endef
 
 define Package/par2cmdline/description
