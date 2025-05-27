@@ -1,19 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sshguard
-PKG_VERSION:=2.4.3
+PKG_VERSION:=2.5.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/sshguard
-PKG_HASH:=64029deff6de90fdeefb1f497d414f0e4045076693a91da1a70eb7595e97efeb
+PKG_HASH:=997a1e0ec2b2165b4757c42f8948162eb534183946af52efc406885d97cb89fc
+
+PKG_LICENSE:=ISC
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -21,12 +22,11 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/sshguard
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Firewall
-	TITLE:=bruteforce protection
-	URL:=https://www.sshguard.net
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Firewall
+  TITLE:=bruteforce protection
+  URL:=https://www.sshguard.net
 endef
 
 define Package/sshguard/description
