@@ -5,11 +5,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=setproctitle
-PKG_VERSION:=1.3.5
+PKG_VERSION:=1.3.6
 PKG_RELEASE:=1
 
 PYPI_NAME:=setproctitle
-PKG_HASH:=1e6eaeaf8a734d428a95d8c104643b39af7d247d604f40a7bebcf3960a853c5e
+PKG_HASH:=c9f32b96c700bb384f33f7cf07954bb609d35dd82752cef57fb2ee0968409169
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-3-Clause
