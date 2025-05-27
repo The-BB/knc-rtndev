@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qpdf
-PKG_VERSION:=12.1.0
+PKG_VERSION:=12.2.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/qpdf/qpdf/tar.gz/refs/tags/v$(PKG_VERSION)?
-PKG_HASH:=f1c2d3a26e67ce1b84b2a5165aeb2a1de79e51eeb782b46fcddff87069d7ea1e
+PKG_HASH:=b3d1575b2218badc3549d6977524bb0f8c468c6528eebc8967bbe3078cf2cace
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=Apache-2.0 Artistic-2.0-Perl
