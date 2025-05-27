@@ -1,29 +1,32 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=minissdpd
-PKG_VERSION:=2.3.7
+PKG_VERSION:=2.3.9
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=b9f21a9cfe9d90afbd87dcff290a8dc8c078409b
 PKG_SOURCE_URL:=https://github.com/miniupnp/miniupnp
-PKG_MIRROR_HASH:=6048ec6965d84e2cf996341a04fcb508116e6a23a599d4c23a5b01e75bd65224
+PKG_MIRROR_HASH:=db3edf0e3fe0dd4d0aaa45dcef5a8e3994616df9d0fac9288dd6df227d456ad8
+
+PKG_LICENSE:=BSD-3-Clause
+PKG_LICENSE_FILES:=LICENSE
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 include $(INCLUDE_DIR)/package.mk
 
 MAKE_PATH:=$(PKG_NAME)
 
 define Package/minissdpd
-	SECTION:=net
-	CATEGORY:=Network
-	DEPENDS:=+libnfnetlink
-	TITLE:=SSDP daemon
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=SSDP daemon
+  URL:=http://miniupnp.free.fr/minissdpd.html
+  DEPENDS:=+libnfnetlink
 endef
 
 define Package/minissdpd/description
