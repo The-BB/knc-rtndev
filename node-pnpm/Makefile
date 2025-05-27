@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2025 Entware
+# Copyright (C) 2024-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=pnpm
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=9.15.4
+PKG_VERSION:=10.11.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=https://registry.npmjs.org/$(PKG_NPM_NAME)/-/
-PKG_HASH:=9bee59c7313a216722c079c1e22160dea7f88df4e0c3450b1d7b01b882336c6a
+PKG_HASH:=a69e9cb077da419d47d18f1dd52e207245b29cac6e076acedbeb8be3b1a67bd7
 
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
@@ -41,36 +41,31 @@ endef
 TAR_OPTIONS+= --strip-components 1
 TAR_CMD=$(HOST_TAR) -C $(1) $(TAR_OPTIONS)
 
+NODEJS_CPU:=$(subst aarch64,arm64,$(subst x86_64,x64,$(subst i386,ia32,$(ARCH))))
 HOSTTMPNPM:=$(shell mktemp -u XXXXXXXXXX)
 
-HOST_NPM_FLAGS=$(HOST_MAKE_VARS) \
-	$(HOST_MAKE_FLAGS) \
-	npm_config_arch=$(NODEJS_CPU) \
-	npm_config_target_arch=$(NODEJS_CPU) \
-	npm_config_build_from_source=true \
-	npm_config_nodedir=$(STAGING_DIR)/opt/ \
-	npm_config_prefix=$(HOST_INSTALL_DIR)/usr/ \
-	npm_config_cache=$(TMP_DIR)/npm-cache-$(HOSTTMPNPM) \
-	npm_config_tmp=$(TMP_DIR)/npm-tmp-$(HOSTTMPNPM)
-
 define Host/Compile
-	$(HOST_NPM_FLAGS) npm i -g --production $(HOST_BUILD_DIR)
-	$(HOST_NPM_FLAGS) npm i \
-		--production \
-		--prefix=$(HOST_BUILD_DIR) \
-		--target_arch=$(NODEJS_CPU) \
-		--prefer-dedupe
-	rm -rf $(TMP_DIR)/npm-tmp-$(HOSTTMPNPM)
+	cd $(HOST_BUILD_DIR); \
+	$(HOST_MAKE_VARS) \
+	npm_config_nodedir=$(STAGING_DIR)/opt/ \
+	npm_config_cache=$(TMP_DIR)/npm-cache-$(HOSTTMPNPM) \
+	npm install \
+		--prefer-offline \
+		--no-audit \
+		--global-style \
+		--install-strategy=shallow \
+		--no-save \
+		--omit=dev \
+		--no-package-lock
 	rm -rf $(TMP_DIR)/npm-cache-$(HOSTTMPNPM)
+	find $(HOST_BUILD_DIR)/dist -type d -empty -print0 | xargs -0 -r rmdir || true
 endef
 
 define Host/Install
 	$(INSTALL_DIR) $(1)/lib/node_modules/$(PKG_NPM_NAME)
-	$(CP) $(HOST_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{package.json,LICENSE} \
+	$(CP) $(HOST_BUILD_DIR)/{package.json,LICENSE,*.md} \
 		$(1)/lib/node_modules/$(PKG_NPM_NAME)/
-	$(CP) $(HOST_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/README.md \
-		$(1)/lib/node_modules/$(PKG_NPM_NAME)/
-	$(CP) $(HOST_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{bin,dist} \
+	$(CP) $(HOST_BUILD_DIR)/{bin,dist} \
 		$(1)/lib/node_modules/$(PKG_NPM_NAME)/
 	$(INSTALL_DIR) $(1)/bin
 	$(LN) ../lib/node_modules/$(PKG_NPM_NAME)/bin/pnpm.cjs $(1)/bin/pnpm
