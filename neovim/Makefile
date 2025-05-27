@@ -5,18 +5,18 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=neovim
-PKG_VERSION:=0.10.3
+PKG_VERSION:=0.11.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/neovim/neovim/tar.gz/refs/tags/v$(PKG_VERSION)?
-PKG_HASH:=39fab47d241da7b9418823cc563c689d522c1c4b2def04036393834f3f1ca94c
+PKG_HASH:=ffe7f9a7633ed895ff6adb1039af7516cd6453715c8889ad844b6fa39c3df443
 
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=LICENSE.txt
 
-PKG_BUILD_DEPENDS:=lua/host lua-ffi/host luabitop/host
-PKG_BUILD_DEPENDS+=liblpeg libtermkey libvterm tree-sitter unibilium
+PKG_BUILD_DEPENDS:=libffi/host lua/host lua-ffi/host luabitop/host
+PKG_BUILD_DEPENDS+=liblpeg tree-sitter unibilium utf8proc
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
@@ -29,7 +29,7 @@ define Package/neovim
   TITLE:=hyperextensible Vim-based text editor
   URL:=https://neovim.io
   PKG_MAINTAINER:=Entware team, https://entware.net
-  DEPENDS:=+libncursesw +libuv +luajit +luv +msgpack-c @HAS_LUAJIT_ARCH $(INTL_DEPENDS)
+  DEPENDS:=+libncursesw +libuv +luajit +luv @HAS_LUAJIT_ARCH $(INTL_DEPENDS)
 endef
 
 define Package/neovim/description
@@ -41,37 +41,46 @@ CMAKE_BINARY_SUBDIR:=build-cross
 TARGET_CFLAGS += -pthread
 TARGET_LDFLAGS += -lncursesw
 
-define Build/Compile
-	( cd $(PKG_BUILD_DIR); $(INSTALL_DIR) .deps-cross; \
-		CC=$(TARGET_CC) CFLAGS="$(TARGET_CFLAGS)" \
-		$(MAKE) -C .deps-cross \
-		BUNDLED_CMAKE_FLAG="\
-			-DCMAKE_BUILD_TYPE=Release \
-			-DUSE_BUNDLED=OFF \
-			-DUSE_BUNDLED_LUV=ON \
-			-DUSE_BUNDLED_TS=ON \
-			-DUSE_BUNDLED_LIBVTERM=ON \
-			-DUSE_BUNDLED_LIBUV=ON \
-			-DUSE_BUNDLED_LUAJIT=OFF \
-			-DUSE_BUNDLED_LUA=ON \
-			-DUSE_BUNDLED_LPEG=ON \
-			-DUSE_BUNDLED_MSGPACK=ON \
-			-DUSE_BUNDLED_UNIBILIUM=ON \
-			-DUSE_BUNDLED_TS_PARSERS=ON \
-			-DLUA_INCLUDE_DIR=$(STAGING_DIR)/opt/include \
-			-DLUA_LIBRARY=$(STAGING_DIR)/opt/lib/liblua.a" \
-		-f ../Makefile deps; \
-	)
+define BuildDeps
 	( cd $(PKG_BUILD_DIR); \
 		cmake -S cmake.deps -B .deps -G "Ninja" -DCMAKE_BUILD_TYPE=Release; \
 		cmake --build .deps -j$(NPROC); \
 	)
+endef
+
+define BuildNativeBins
 	( cd $(PKG_BUILD_DIR); \
 		cmake -B build-native -G "Ninja" -DCMAKE_BUILD_TYPE=Release; \
 		cmake --build build-native -j$(NPROC); \
 		$(CP) $(PKG_BUILD_DIR)/build-native/lib/libnlua0.so \
 			$(STAGING_DIR_HOSTPKG)/lib/lua/5.1/nlua0.so; \
 	)
+endef
+
+define BuildParsers
+	( cd $(PKG_BUILD_DIR); $(INSTALL_DIR) .deps-cross; \
+		CC=$(TARGET_CC) CFLAGS="$(TARGET_CFLAGS)" \
+		$(MAKE) -C .deps-cross \
+		BUNDLED_CMAKE_FLAG="\
+			-DCMAKE_BUILD_TYPE=Release \
+			-DUSE_BUNDLED=OFF \
+			-DUSE_BUNDLED_LIBUV=ON \
+			-DUSE_BUNDLED_LPEG=ON \
+			-DUSE_BUNDLED_LUAJIT=OFF \
+			-DUSE_BUNDLED_LUA=ON \
+			-DUSE_BUNDLED_LUV=ON \
+			-DUSE_BUNDLED_TS=ON \
+			-DUSE_BUNDLED_TS_PARSERS=ON \
+			-DUSE_BUNDLED_UNIBILIUM=ON \
+			-DUSE_BUNDLED_UTF8PROC=ON" \
+		-f ../Makefile deps; \
+	)
+endef
+
+define Build/Compile
+	$(call BuildDeps)
+	$(call BuildNativeBins)
+	$(call BuildParsers)
 endef
 
 define Package/neovim/install
