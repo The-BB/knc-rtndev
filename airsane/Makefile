@@ -5,13 +5,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=airsane
-PKG_VERSION:=0.4.4
+PKG_VERSION:=0.4.5
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/SimulPiscator/AirSane
-PKG_MIRROR_HASH:=41401d8cf9f3afadcec372553ff7ae49df9ecc1feb1cca585b493c4e3413fda3
+PKG_MIRROR_HASH:=2e08eecc7fc102be360cfb58aa28a879562ca847d98cf6d5da3939c9358fc839
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-only
