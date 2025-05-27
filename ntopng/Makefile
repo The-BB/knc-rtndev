@@ -1,16 +1,21 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2023-2024 Entware
+# Copyright (C) 2023-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ntopng
-PKG_VERSION:=6.2
+PKG_VERSION:=6.4
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://codeload.github.com/ntop/ntopng/tar.gz/refs/tags/$(PKG_VERSION)?
-PKG_HASH:=de6ef8d468be3272bce27719ab06d5b7eed6e4a33872528f64c930a81000ccd1
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+#PKG_SOURCE_URL:=https://codeload.github.com/ntop/ntopng/tar.gz/refs/tags/$(PKG_VERSION)?
+#PKG_HASH:=3eaff9f13566e349cada66d41191824a80288ea19ff4427a49a682386348931d
+
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=$(PKG_VERSION)
+PKG_SOURCE_URL:=https://github.com/ntop/ntopng
+PKG_MIRROR_HASH:=cbb05d976f1e563b96655f4d1e9a67d14ab878b7968fc0888ee488fa0eb17564
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
@@ -28,11 +33,11 @@ define Package/ntopng
   TITLE:=display top network users
   URL:=https://www.ntop.org/
   DEPENDS:=+glib2 +libatomic +libcap +libcurl +libexpat +libgcrypt
-  DEPENDS+=+libgpg-error +libhiredis +libjson-c +liblua5.3 +libopenldap
+  DEPENDS+=+libgpg-error +libhiredis +libjson-c +liblua5.4 +libopenldap
   DEPENDS+=+libmariadb +libmaxminddb +libndpi +libnetsnmp +libpcap
   DEPENDS+=+libradcli +libsodium +libsqlite3 +libstdcpp +libwrap
   DEPENDS+=+libzmq-nc +libzstd +zlib
-  EXTRA_DEPENDS:=redis-server
+  EXTRA_DEPENDS:=redis-server, redis-cli
 endef
 
 define Package/ntopng/description

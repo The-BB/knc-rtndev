@@ -59,16 +59,35 @@
    SSL_LIB="`pkg-config --libs libssl` -lssl -lcrypto"
  else
    dnl Workaround for MacOS Brew
-@@ -540,7 +540,7 @@ HIREDIS_LIB=
+@@ -538,13 +538,13 @@ AC_CHECK_LIB(resolv, inet_aton)
+ HIREDIS_INC=
+ HIREDIS_LIB=
  AS_VAR_IF(with_hiredis, yes, [
-     pkg-config --exists hiredis
-     if test "$?" -ne 1; then
--    HIREDIS_INC="`pkg-config --cflags hiredis` -I/usr/include/hiredis"
-+    HIREDIS_INC="`pkg-config --cflags hiredis`"
-     if test $SYSTEM = "FreeBSD" && $FREEBSD_VERSION != "15"; then
+-    if test -f "${HOME}/hiredis/libhiredis.a" ; then :
+-      HIREDIS_INC="-I${HOME}/hiredis/"
+-      HIREDIS_LIB="${HOME}/hiredis/libhiredis.a"
+-    else
++#    if test -f "${HOME}/hiredis/libhiredis.a" ; then :
++#      HIREDIS_INC="-I${HOME}/hiredis/"
++#      HIREDIS_LIB="${HOME}/hiredis/libhiredis.a"
++#    else
+       pkg-config --exists hiredis
+       if test "$?" -ne 1; then
+-      HIREDIS_INC="`pkg-config --cflags hiredis` -I/usr/include/hiredis"
++      HIREDIS_INC="`pkg-config --cflags hiredis`"
+       if test $SYSTEM = "FreeBSD" && $FREEBSD_VERSION != "15"; then
  	dnl> Note: on freebsd 15 .a is not installed
          HIREDIS_LIB="/usr/local/lib/libhiredis.a"
-@@ -865,8 +865,8 @@ fi
+@@ -555,7 +555,7 @@ AS_VAR_IF(with_hiredis, yes, [
+       echo "Please install hiredis package prerequisite"
+       exit -1
+       fi
+-   fi
++#   fi
+ ])
+ 
+ if test "${with_nedge+set}" != set; then
+@@ -870,8 +870,8 @@ fi
  
  PWD=${HERE}
  AC_DEFINE_UNQUOTED(PACKAGE_RELEASE, "r$GIT_RELEASE", [GIT release of this package])
@@ -86,7 +105,7 @@
  LUA_HOME=${PWD}/third-party/lua-5.4.6
  LUA_INC=-I$(LUA_HOME)/src
 -LUA_LIB=$(LUA_HOME)/src/liblua.a
-+LUA_LIB=-llua5.3
++LUA_LIB=-llua5.4
  
  ifeq ($(OS),Linux)
  	LUA_PLATFORM=linux

@@ -19,7 +19,7 @@
  
  case $OS in
    'FreeBSD')
-@@ -14,8 +14,8 @@ esac
+@@ -14,13 +14,13 @@ esac
  
  DEFAULT_CONF_FILE="${NTOPNG_CONFIG_PATH}/ntopng.conf"
  
@@ -30,6 +30,12 @@
  if [ -d "${OLD_DEFAULT_DATADIR}" ]; then
      DEFAULT_DATADIR="${OLD_DEFAULT_DATADIR}"
  fi
+ 
+-REDIS_DUMP_DIR="/var/lib/redis"
++REDIS_DUMP_DIR="/opt/var/lib/redis"
+ REDIS_DUMP_FILENAME="dump.rdb"
+ REDIS_DUMP_PATH="${REDIS_DUMP_DIR}/${REDIS_DUMP_FILENAME}"
+ 
 @@ -278,13 +278,13 @@ function manifest_to_staging_dir() {
  }
  
@@ -47,6 +53,23 @@
  	copy_to_staging_dir "${DATADIR}/system.config" "__datadir"
      fi
  
+@@ -296,13 +296,13 @@ function backup_to_staging_dir() {
+ 	fi
+ 
+ 	echo "[i] Saving configuration"
+-	LASTSAVE=`/usr/bin/redis-cli LASTSAVE|cut -f2`
+-	/usr/bin/redis-cli BGSAVE
++	LASTSAVE=`/opt/bin/redis-cli LASTSAVE|cut -f2`
++	/opt/bin/redis-cli BGSAVE
+ 
+ 	sleep 2
+ 
+ 	echo "[i] Creating backup"
+-	CURRSAVE=`/usr/bin/redis-cli LASTSAVE|cut -f2`
++	CURRSAVE=`/opt/bin/redis-cli LASTSAVE|cut -f2`
+ 
+ 	copy_to_staging_dir ${REDIS_DUMP_PATH} "__redis"
+ 
 @@ -450,7 +450,7 @@ function restore_files() {
      if [ -d "${STAGING_DIR}/__etc_ntopng" ]; then
  	find "${STAGING_DIR}/__etc_ntopng"  -maxdepth 1 -type f -name '*.*' -print0 |
@@ -56,6 +79,15 @@
  	    done
      fi
  
+@@ -464,7 +464,7 @@ function restore_files() {
+ 	fi
+ 
+ 	echo "[i] Stopping redis service"
+-	/usr/bin/redis-cli FLUSHALL
++	/opt/bin/redis-cli FLUSHALL
+ 	systemctl stop redis-server
+ 
+ 	echo "[i] Restoring configuration"
 @@ -482,11 +482,11 @@ function restore_files() {
  
      # restore license
