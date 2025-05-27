@@ -1,18 +1,19 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
-PKG_VERSION:=2.1.1
+PKG_VERSION:=2.2.0
 PKG_RELEASE:=1
 
 PYPI_NAME:=deluge
-PKG_HASH:=d6ea7e1f5bdd75f40cbd1d56f0c97cd1b5b74bc9e03783858c7daa81063dd4b9
+PKG_HASH:=f0fc64e052334ef294ca3951975dd926f129d62813f6c909bb523d914abe6537
+
+PKG_LICENSE:=GPL-3.0-or-later
+PKG_LICENSE_FILES:=LICENSE
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_BUILD_DEPENDS:=python-wheel/host
 
@@ -21,37 +22,36 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/deluge/Default
-	SUBMENU:=BitTorrent
-	SECTION:=net
-	CATEGORY:=Network
-	TITLE:=a lightweight BitTorrent client
-	URL:=https://deluge-torrent.org
-	MAINTAINER:=Entware team, https://entware.net
+  SUBMENU:=BitTorrent
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=a lightweight BitTorrent client
+  URL:=https://deluge-torrent.org
 endef
 
 define Package/deluge
-	$(call Package/deluge/Default)
-	TITLE+= (console UI & daemon)
-	DEPENDS:= \
-	    +python3-chardet \
-	    +python3-ifaddr \
-	    +python3-libtorrent \
-	    +python3-mako \
-	    +python3-pillow \
-	    +python3-pyasn1 \
-	    +python3-pyopenssl \
-	    +python3-pyxdg \
-	    +python3-rencode \
-	    +python3-setproctitle \
-	    +python3-setuptools \
-	    +python3-twisted \
-	    +python3-zope-interface
+  $(call Package/deluge/Default)
+  TITLE+= (console UI & daemon)
+  DEPENDS:= \
+	+python3-chardet \
+	+python3-ifaddr \
+	+python3-libtorrent \
+	+python3-mako \
+	+python3-pillow \
+	+python3-pyasn1 \
+	+python3-pyopenssl \
+	+python3-pyxdg \
+	+python3-rencode \
+	+python3-setproctitle \
+	+python3-setuptools \
+	+python3-twisted \
+	+python3-zope-interface
 endef
 
 define Package/deluge-ui-web
-	$(call Package/deluge/Default)
-	TITLE+= (Web UI)
-	DEPENDS:=deluge
+  $(call Package/deluge/Default)
+  TITLE+= (Web UI)
+  DEPENDS:=deluge
 endef
 
 define Package/deluge/description
