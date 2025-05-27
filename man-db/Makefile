@@ -5,12 +5,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=man-db
-PKG_VERSION:=2.13.0
-PKG_RELEASE:=2
+PKG_VERSION:=2.13.1
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://gitlab.com/man-db/man-db/-/archive/$(PKG_VERSION)
-PKG_HASH:=adb430f71afd46ab5a5743d25cf966a3af9742bf40af072f90918a991dfae8b8
+PKG_HASH:=8d14b10f8e295fa40d6a1975817ead1d80c2f085794d2d9e2e1179fa0cb54132
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
