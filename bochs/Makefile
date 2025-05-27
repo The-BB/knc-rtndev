@@ -1,29 +1,32 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bochs
-PKG_VERSION:=2.8
+PKG_VERSION:=3.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=REL_$(subst .,_,$(PKG_VERSION))_FINAL
 PKG_SOURCE_URL:=https://github.com/bochs-emu/Bochs
-PKG_MIRROR_HASH:=dabef0b0c04f4dc871a6cf17c622fee4f00ce8cb2857c01cc9cb7e66766de438
+PKG_MIRROR_HASH:=d14dda59324f7efcb43f22e5db275c64464f889d745c9fe1c384c8026efdb941
+
+PKG_LICENSE:=LGPL-2.1-or-later
+PKG_LICENSE_FILES:=LICENSE
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/bochs
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=+libncurses +libstdcpp
-	TITLE:=x86 PC emulator
-	URL:=http://bochs.sourceforge.net/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=x86 PC emulator
+  URL:=https://bochs.sourceforge.io
+  DEPENDS:=+libncursesw +libstdcpp
 endef
 
 define Package/bochs/description
