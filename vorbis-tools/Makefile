@@ -1,20 +1,21 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vorbis-tools
-PKG_VERSION:=1.4.2
+PKG_VERSION:=1.4.3
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=71687237c07cd9d5564c73990d0de45520c5bec1
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/xiph/vorbis-tools
-PKG_MIRROR_HASH:=db0e7186d7f717b482d93c98040a8670fd90f405b968999844944aac140474f6
+PKG_MIRROR_HASH:=83dc9f8f57e22428bc0ac29962a6cb54faa98bc4f07c846984443b7060aba528
+
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING LICENCE.LGPL
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
