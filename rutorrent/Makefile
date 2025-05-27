@@ -5,13 +5,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_VERSION:=5.1.7
+PKG_VERSION:=5.2.5
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Novik/ruTorrent
-PKG_MIRROR_HASH:=8017886beadb88952946e9e6794b7cac3c0cf45d883962d8321f682f9b2753f4
+PKG_MIRROR_HASH:=b03a42bb6cb020f877d221b3cf5bf0f4e1b4a8583b07f76ceab69d56eea78168
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
@@ -31,6 +31,7 @@ create \
 data \
 datadir \
 diskspace \
+dump \
 edit \
 erasedata \
 extratio \
