@@ -1,29 +1,29 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnuchess
-PKG_VERSION:=6.2.9
+PKG_VERSION:=6.2.11
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/chess
-PKG_HASH:=ddfcc20bdd756900a9ab6c42c7daf90a2893bf7f19ce347420ce36baebc41890
+PKG_HASH:=d81140eea5c69d14b0cfb63816d4b4c9e18fba51f5267de5b1539f468939e9bd
+
+PKG_LICENSE:=GPL-3.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/gnuchess
-	SECTION:=games
-	CATEGORY:=Games
-	TITLE:=GNU Chess
-	DEPENDS:=+libreadline +libncurses +libpthread +libstdcpp
-	URL:=http://www.gnu.org/software/chess/chess.html
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=games
+  CATEGORY:=Games
+  TITLE:=GNU Chess
+  URL:=https://www.gnu.org/software/chess/chess.html
+  DEPENDS:=+libncurses +libreadline +libstdcpp
 endef
 
 define Package/gnuchess/description
