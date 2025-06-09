@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=iotop
 PKG_VERSION:=0.6
-PKG_RELEASE:=2
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2023-04-03
@@ -25,7 +25,7 @@ include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
-define Package/iotop
+define Package/python3-iotop
 	SECTION:=admin
 	CATEGORY:=Administration
 	TITLE:=iotop watches I/O usage information output by the Linux kernel
@@ -33,12 +33,12 @@ define Package/iotop
 	DEPENDS:=+python3-ctypes +python3-ncurses
 endef
 
-define Package/iotop/description
+define Package/python3-iotop/description
  Iotop is a Python program with a top like UI used to show of behalf of
  which process is the I/O going on.
 endef
 
-define Package/iotop/install
+define Package/python3-iotop/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/iotop $(1)/opt/sbin
 	$(INSTALL_DIR) $(1)$(PYTHON3_PKG_DIR)
@@ -46,12 +46,12 @@ define Package/iotop/install
 	$(call Python3/FixShebang,$(1)/opt/sbin/iotop)
 endef
 
-define Package/iotop/postrm
+define Package/python3-iotop/postrm
 #!/bin/sh
 
 rm -rf $(PYTHON3_PKG_DIR)/$(PYPI_NAME)
 rm -rf $(PYTHON3_PKG_DIR)/$(PYPI_NAME)-$(PKG_VERSION).dist-info
 endef
 
-$(eval $(call Py3Package,iotop))
-$(eval $(call BuildPackage,iotop))
+$(eval $(call Py3Package,python3-iotop))
+$(eval $(call BuildPackage,python3-iotop))
