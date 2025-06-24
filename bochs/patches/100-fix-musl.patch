@@ -1,0 +1,20 @@
+keymap.cc:133:28: error: 'basename' was not declared in this scope; did you mean 'rename'?
+  133 |       if (strncmp(prefix2, basename(keymap_file), strlen(prefix2))) {
+      |                            ^~~~~~~~
+      |                            rename
+
+---
+
+--- a/bochs/gui/keymap.cc
++++ b/bochs/gui/keymap.cc
+@@ -30,6 +30,10 @@
+ #include "gui.h"
+ #include "keymap.h"
+ 
++#if !defined(__GLIBC__)
++#include <libgen.h> /* basename musl */
++#endif
++
+ // Table of bochs "BX_KEY_*" symbols
+ // the table must be in BX_KEY_* order
+ const char *bx_key_symbol[BX_KEY_NBKEYS] = {
