@@ -52,6 +52,9 @@ define Package/libnfs-utils/description
  NFS shares over a network.
 endef
 
+# FIXME GCC-14.x - error: implicit declaration of function 'writev'
+TARGET_CFLAGS += -DHAVE_SYS_UIO_H
+
 CMAKE_OPTIONS += \
 	-DENABLE_UTILS=ON
 
