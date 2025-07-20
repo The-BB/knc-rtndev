@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2011-2025 Entware
 
-# Project archieved
+# Project archived
 
 include $(TOPDIR)/rules.mk
 
