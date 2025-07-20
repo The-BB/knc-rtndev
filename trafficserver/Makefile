@@ -55,6 +55,8 @@ define Package/trafficserver/conffiles
 /opt/etc/trafficserver/volume.config
 endef
 
+TARGET_CFLAGS += -DOPENSSL_NO_ENGINE
+
 TARGET_CXXFLAGS += -pthread
 TARGET_LDFLAGS += -latomic -ldl
 
