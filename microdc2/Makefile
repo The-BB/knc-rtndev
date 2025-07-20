@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
 
 # Abandoned in 2018
 
@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=microdc2
 PKG_REAL_VERSION:=0.15.6
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2018-07-18
@@ -28,24 +28,28 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/microdc2
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=P2P
-	TITLE:=command-line based Direct Connect client
-	URL:=$(PKG_SOURCE_URL)
-	DEPENDS:=+libbz2 +libncurses +libreadline +libxml2 $(INTL_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=P2P
+  TITLE:=command-line based Direct Connect client
+  URL:=https://www.nongnu.org/microdc
+  DEPENDS:=+libbz2 +libncurses +libreadline +libxml2 $(INTL_DEPENDS)
 endef
 
 define Package/microdc2/description
  A command-line based Direct Connect client.
 endef
 
-MAKE_FLAGS += \
-	LTLIBICONV=""
-
 define Package/microdc2/conffiles
 /opt/share/microdc2/config
 endef
+
+MAKE_FLAGS += \
+	LTLIBICONV=""
+
+ifeq ($(CONFIG_GCC_USE_VERSION_14),y)
+TARGET_CFLAGS += -std=gnu89
+endif
 
 define Package/microdc2/install
 	$(INSTALL_DIR) $(1)/opt/bin
