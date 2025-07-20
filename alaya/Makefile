@@ -5,13 +5,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=alaya
-PKG_VERSION:=4.6
+PKG_VERSION:=5.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/ColumPaget/Alaya
-PKG_MIRROR_HASH:=97a4f2446a4346c338b3298db5bb989ac1ef2db1f820dfc4636419f737503930
+PKG_MIRROR_HASH:=40a14d6c9051679bb21dc0387c5aa4a134216c09f400d76671de6cd62e627dea
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-only
@@ -23,12 +23,12 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/alaya
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
-	TITLE:=A WEBDAV Server
-	URL:=https://github.com/ColumPaget/Alaya
-	DEPENDS:=+libopenssl +libpam +zlib
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=WebDAV Server
+  URL:=https://github.com/ColumPaget/Alaya
+  DEPENDS:=+libopenssl +libpam +zlib
 endef
 
 define Package/alaya/description

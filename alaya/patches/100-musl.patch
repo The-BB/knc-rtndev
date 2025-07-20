@@ -44,9 +44,9 @@ In file included from Process.c:27:
  static ListNode *OAuthKeyChain=NULL;
 --- a/libUseful-bundled/Process.c
 +++ b/libUseful-bundled/Process.c
-@@ -23,7 +23,9 @@
- #include <sys/file.h>
+@@ -24,7 +24,9 @@
  
+ #ifdef __linux__
  #ifdef HAVE_PRCTL
 -#include <linux/prctl.h>  /* Definition of PR_* constants */
 +# ifdef __GLIBC__
@@ -54,7 +54,7 @@ In file included from Process.c:27:
 +# endif
  #include <sys/prctl.h>
  #endif
- 
+ #endif
 --- a/upload.c
 +++ b/upload.c
 @@ -1,6 +1,9 @@
