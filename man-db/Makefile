@@ -26,7 +26,8 @@ define Package/man-db
   CATEGORY:=Utilities
   TITLE:=Tools for reading manual pages
   URL:=https://man-db.gitlab.io/man-db/
-  DEPENDS:= +groff +less +libgdbm +libpipeline +libunistring +zlib \
+  DEPENDS:= \
+	+groff +less +libgdbm +libpipeline +libunistring +zlib \
 	$(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
@@ -51,16 +52,17 @@ define Download/gnulib
 endef
 
 CONFIGURE_ARGS += \
-	--mandir=/opt/share/man \
-	--disable-setuid \
-	--with-device=latin1 \
-	--with-pager=less \
 	--disable-cache-owner \
 	--disable-manual \
 	--disable-nls \
+	--disable-setuid \
 	--disable-year2038 \
+	--enable-mb-groff \
+	--mandir=/opt/share/man \
+	--with-device=latin1 \
 	--with-libiconv-prefix="$(ICONV_PREFIX)" \
-	--with-libintl-prefix="$(INTL_PREFIX)"
+	--with-libintl-prefix="$(INTL_PREFIX)" \
+	--with-pager=less
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
