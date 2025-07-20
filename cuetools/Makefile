@@ -1,9 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
+
+# Abandoned in 2020
 
 include $(TOPDIR)/rules.mk
 
@@ -12,9 +11,13 @@ PKG_VERSION:=1.4.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=365e379483ea180bcfa272d89a2524da55b1d600
+PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/svend/cuetools
 PKG_MIRROR_HASH:=2d346cd995b8d3a58d6e05d8cfa3839f79df1ce7a035fbe662f35af7064075e1
+
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -22,11 +25,10 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/cuetools
-	SECTION:=sound
-	CATEGORY:=Sound
-	TITLE:=cue and toc file parsers and utilities
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=sound
+  CATEGORY:=Sound
+  TITLE:=cue and toc file parsers and utilities
+  URL:=https://github.com/svend/cuetools
 endef
 
 define Package/cuetools/description
