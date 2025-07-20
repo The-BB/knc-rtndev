@@ -20,10 +20,10 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 
 define Package/entr
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=run arbitrary commands when files change
-	URL:=https://eradman.com/entrproject/
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=run arbitrary commands when files change
+  URL:=https://eradman.com/entrproject/
 endef
 
 define Package/entr/description
