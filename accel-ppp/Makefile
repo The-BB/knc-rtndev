@@ -13,19 +13,22 @@ PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/accel-ppp/accel-ppp
 PKG_MIRROR_HASH:=f1e41a8bbc789777237727984c083eaa4a14a6d3db478e92816865ef05f16dfe
 
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
+
 CMAKE_BINARY_SUBDIR:=openwrt-build
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/accel-ppp
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=VPN
-	DEPENDS:=+libopenssl +libpcre +USE_MUSL:libucontext
-	TITLE:=accel-ppp VPN server
-	URL:=https://accel-ppp.org/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=VPN
+  TITLE:=VPN server
+  URL:=https://www.accel-ppp.io/
+  DEPENDS:=+libopenssl +libpcre +USE_MUSL:libucontext
 endef
 
 define Package/accel-ppp/description
