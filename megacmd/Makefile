@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
+
+# The newer versions based on cmake+vcpkg build system with online dependencies installation
 
 include $(TOPDIR)/rules.mk
 
@@ -9,9 +11,9 @@ PKG_VERSION:=1.7.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=bc0e4016eeb561677e8078294422e9b1619515b5
+PKG_SOURCE_VERSION:=$(PKG_VERSION)_Linux
 PKG_SOURCE_URL:=https://github.com/meganz/MEGAcmd
-PKG_MIRROR_HASH:=54774b27d5093c2163bba38588f49f037d8ebcaeac26de6a9f50ed9566dfbd37
+PKG_MIRROR_HASH:=2a03e5ba9624492fd546500207061cfff0fd76923246c24f121327415c222a04
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -19,14 +21,14 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/megacmd
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=File Transfer
-	DEPENDS:=+icu +libcares +libcryptopp +libcurl +libmediainfo \
-	    +libpcre +libreadline +libsodium +libsqlite3 +libuv
-	TITLE:=Command Line Interactive and Scriptable Application
-	URL:=https://github.com/meganz/megacmd
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=File Transfer
+  TITLE:=Command Line Interactive and Scriptable Application
+  URL:=https://github.com/meganz/megacmd
+  DEPENDS:= \
+	+icu +libcares +libcryptopp +libcurl +libmediainfo \
+	+libpcre +libreadline +libsodium +libsqlite3 +libuv
 endef
 
 define Package/megacmd/description
