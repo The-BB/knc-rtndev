@@ -9,7 +9,7 @@ PKG_VERSION:=4.4.6
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=\
+PKG_SOURCE_URL:= \
 	https://1.eu.dl.wireshark.org/src \
 	http://ftp.uni-kl.de/pub/wireshark/src \
 	https://wireshark.org/download/src/all-versions
@@ -32,7 +32,8 @@ define Package/wireshark
   CATEGORY:=Network
   TITLE:=network protocol analyzer
   URL:=https://www.wireshark.org
-  DEPENDS:=+bcg729 +glib2 +krb5-libs +libcap +libcares +libgcrypt +libgnutls +liblz4 \
+  DEPENDS:= \
+	+bcg729 +glib2 +krb5-libs +libcap +libcares +libgcrypt +libgnutls +liblz4 \
 	+libmaxminddb +libnghttp2 +libopus +libpcap +libspandsp +libspeexdsp +libssh \
 	+libxml2 +sbc +zstd
 endef
