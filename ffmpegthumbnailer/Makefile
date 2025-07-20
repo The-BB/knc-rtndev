@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2006-2011 OpenWrt.org
-# Copyright (C) 2015-2024 Entware
+# Copyright (C) 2015-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -37,7 +37,7 @@ endef
 
 define Package/libffmpegthumbnailer/install
 	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libffmpegthumbnailer*.so* $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libffmpegthumbnailer*.so* $(1)/opt/lib
 endef
 
 $(eval $(call BuildPackage,libffmpegthumbnailer))
