@@ -29,7 +29,7 @@ define Package/tunsafe
 	SUBMENU:=VPN
 	TITLE:=TunSafe
 	URL:=https://www.tunsafe.com/
-	DEPENDS:=+libstdcpp +(mips||mipsel):libatomic
+	DEPENDS:=+libstdcpp +(mips||mipsel):libatomic @!GCC_USE_VERSION_14
 endef
 
 define Package/tunsafe/description
