@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2024 Entware
+# Copyright (C) 2017-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=transmission-cfp
 PKG_REAL_VERSION:=2.77plus14734-19
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REAL_VERSION)
@@ -25,33 +25,33 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/transmission-cfp/Default
-	SUBMENU:=BitTorrent
-	SECTION:=net
-	CATEGORY:=Network
-	TITLE:=BitTorrent client
-	URL:=https://github.com/cfpp2p/transmission
-	DEPENDS:=+libcurl +libevent2 +zlib
+  SUBMENU:=BitTorrent
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=BitTorrent client
+  URL:=https://github.com/cfpp2p/transmission
+  DEPENDS:=+libcurl +libevent2 +zlib @!GCC_USE_VERSION_14
 endef
 
 define Package/transmission-cfp-daemon
-	$(call Package/transmission-cfp/Default)
-	TITLE+= (daemon)
+  $(call Package/transmission-cfp/Default)
+  TITLE+= (daemon)
 endef
 
 define Package/transmission-cfp-cli
-	$(call Package/transmission-cfp/Default)
-	TITLE+= (cli)
+  $(call Package/transmission-cfp/Default)
+  TITLE+= (cli)
 endef
 
 define Package/transmission-cfp-remote
-	$(call Package/transmission-cfp/Default)
-	TITLE+= (remote control utility)
+  $(call Package/transmission-cfp/Default)
+  TITLE+= (remote control utility)
 endef
 
 define Package/transmission-cfp-web
-	$(call Package/transmission-cfp/Default)
-	TITLE+= (webinterface)
-	DEPENDS:=+transmission-cfp-daemon
+  $(call Package/transmission-cfp/Default)
+  TITLE+= (webinterface)
+  DEPENDS:=+transmission-cfp-daemon
 endef
 
 define Package/transmission-cfp-daemon/description
@@ -74,13 +74,23 @@ endef
 
 WEB_CLIENT_FILE:=web-client-cfp-2019-01-28.tar.zst
 define Download/web-client-cfp
-	PROTO:=git
-	FILE:=$(WEB_CLIENT_FILE)
-	SOURCE_VERSION:=f104a68aa2a5b76914cdebaf7ded7ba09defd23b
-	URL:=https://git.code.sf.net/p/transmission-daemon-cfp/code
-	SUBDIR:=web-client-cfp
-	MIRROR_HASH:=dce2cc966b4a9ed5c5204a08cb9d5aaf3b5f747926ec85134f37d8242d389279
+  PROTO:=git
+  FILE:=$(WEB_CLIENT_FILE)
+  SOURCE_VERSION:=f104a68aa2a5b76914cdebaf7ded7ba09defd23b
+  URL:=https://git.code.sf.net/p/transmission-daemon-cfp/code
+  SUBDIR:=web-client-cfp
+  MIRROR_HASH:=dce2cc966b4a9ed5c5204a08cb9d5aaf3b5f747926ec85134f37d8242d389279
 endef
+
+define Package/transmission-daemon-openssl/conffiles
+/opt/etc/transmission/settings.json
+endef
+
+CONFIGURE_ARGS += \
+	--enable-utp \
+	--enable-lightweight \
+	--enable-cli \
+	--enable-daemon
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
@@ -92,16 +102,6 @@ endef
 define Build/Configure
 	( cd $(PKG_BUILD_DIR) && ./update-version-h.sh )
 	$(call Build/Configure/Default)
-endef
-
-CONFIGURE_ARGS += \
-	--enable-utp \
-	--enable-lightweight \
-	--enable-cli \
-	--enable-daemon
-
-define Package/transmission-daemon-openssl/conffiles
-/opt/etc/transmission/settings.json
 endef
 
 define Package/transmission-cfp-daemon/install
