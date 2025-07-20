@@ -24,11 +24,11 @@ PKG_FIXUP:=autoreconf
 include $(INCLUDE_DIR)/package.mk
 
 define Package/libmediainfo
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE:=library reading metadata from media files
-	URL:=https://mediaarea.net/MediaInfo
-	DEPENDS:=+libzen +zlib
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE:=library reading metadata from media files
+  URL:=https://mediaarea.net/MediaInfo
+  DEPENDS:=+libzen +zlib
 endef
 
 define Package/libmediainfo/description
