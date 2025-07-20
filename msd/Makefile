@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2024 Entware
+# Copyright (C) 2017-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -21,11 +21,11 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/msd
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	SUBMENU:=Streaming
-	TITLE:=program for IP TV streaming on the network via HTTP
-	URL:=http://www.netlab.linkpc.net/wiki/en:software:msd:index
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  SUBMENU:=Streaming
+  TITLE:=program for IP TV streaming on the network via HTTP
+  URL:=http://www.netlab.linkpc.net/wiki/en:software:msd:index
 endef
 
 define Package/msd/description
