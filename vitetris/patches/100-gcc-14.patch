@@ -1,0 +1,32 @@
+netplay.c:20:8: error: return type defaults to 'int' [-Wimplicit-int]
+   20 | static init_field(char *str, const char *val, int maxlen)
+      |        ^~~~~~~~~~
+make[5]: *** [Makefile:59: netplay.o] Error 1
+...
+tty_socket.c:128:13: error: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  128 |         if (time(NULL) - st.st_mtime > 3600) {
+      |             ^~~~
+
+---
+
+--- a/src/menu/netplay.c
++++ b/src/menu/netplay.c
+@@ -17,7 +17,7 @@ static char name_str[18];
+ 
+ static int cursor = -1;
+ 
+-static init_field(char *str, const char *val, int maxlen)
++static void init_field(char *str, const char *val, int maxlen)
+ {
+ 	memset(str, ' ', maxlen+1);
+ 	if (val) {
+--- a/src/netw/tty_socket.c
++++ b/src/netw/tty_socket.c
+@@ -11,6 +11,7 @@
+ #include <sys/un.h>
+ #include <pwd.h>
+ #include <errno.h>
++#include <time.h>
+ #include "sock.h"
+ #include "internal.h"
+ 
