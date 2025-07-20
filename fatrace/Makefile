@@ -20,10 +20,10 @@ PKG_LICENSE_FILES:=COPYING
 include $(INCLUDE_DIR)/package.mk
 
 define Package/fatrace
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=report system wide file access events
-	URL:=https://piware.de/2012/02/fatrace-report-system-wide-file-access-events/
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=report system wide file access events
+  URL:=https://piware.de/2012/02/fatrace-report-system-wide-file-access-events/
 endef
 
 define Package/fatrace/description
