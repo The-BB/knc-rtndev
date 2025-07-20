@@ -1,9 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -20,17 +17,18 @@ PKG_MIRROR_HASH:=1a4999ff11d781f820cb0de9c19d020781a43df41eb54506cbc6a81a8444b37
 
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
 
 include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/python3-iotop
-	SECTION:=admin
-	CATEGORY:=Administration
-	TITLE:=iotop watches I/O usage information output by the Linux kernel
-	URL:=http://guichaz.free.fr/iotop/
-	DEPENDS:=+python3-ctypes +python3-ncurses
+  SECTION:=admin
+  CATEGORY:=Administration
+  TITLE:=watches I/O usage information output by the Linux kernel
+  URL:=http://guichaz.free.fr/iotop/
+  DEPENDS:=+python3-ctypes +python3-ncurses
 endef
 
 define Package/python3-iotop/description
