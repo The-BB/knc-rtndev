@@ -1,0 +1,20 @@
+https://github.com/mlj/castget/commit/5bce05882ca34b3fd4e1c3667a3e8336c1f3ed2f
+
+libxmlutil.c:51:12: error: implicit declaration of function 'strtol'; did you mean 'strtok'? [-Wimplicit-function-declaration]
+   51 |     return strtol((char *)s, (char **)NULL, 10);
+      |            ^~~~~~
+      |            strtok
+make[5]: *** [Makefile:477: libxmlutil.o] Error 1
+
+---
+
+--- a/src/libxmlutil.c
++++ b/src/libxmlutil.c
+@@ -21,6 +21,7 @@
+ #include "config.h"
+ #endif /* HAVE_CONFIG_H */
+ 
++#include <stdlib.h> /* strtol() */ 
+ #include <string.h>
+ #include "libxmlutil.h"
+ 
