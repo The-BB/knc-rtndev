@@ -1,30 +1,30 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ziproxy
 PKG_VERSION:=3.3.2
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/ziproxy
 PKG_HASH:=76a1fc62c76dfa1a8d0784193aba20a96e214dd615b7927b497ceee5059699f1
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/ziproxy
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
-	DEPENDS:=+giflib +libjpeg +libpng +libsasl2 +libpthread
-	TITLE:=compressing HTTP proxy server
-	URL:=http://ziproxy.sourceforge.net
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Web Servers/Proxies
+  TITLE:=compressing HTTP proxy server
+  URL:=http://ziproxy.sourceforge.net
+  DEPENDS:=+giflib +libjpeg +libpng +libsasl2
 endef
 
 define Package/ziproxy/description

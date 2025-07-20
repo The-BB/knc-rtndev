@@ -1,0 +1,16 @@
+image.c:505:9: error: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  505 |         memcpy(data, desc->buf + desc->x.pos,length);
+      |         ^~~~~~
+
+---
+
+--- a/src/image.c
++++ b/src/image.c
+@@ -56,6 +56,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <assert.h>
+ 
+ #include <gif_lib.h>
