@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2013 Francisco Borges
+# Copyright (C) 2013 Francisco Borges https://github.com/FranciscoBorges/openwrt-printing-packages
 # Copyright (C) 2011-2025 Entware
-#
-# Makefile taken from http://github.com/FranciscoBorges/openwrt-printing-packages
 
 include $(TOPDIR)/rules.mk
 
