@@ -21,28 +21,28 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
 define Package/exiv2/Default
-	TITLE:=Image metadata library and tools
-	URL:=https://exiv2.org/
+  TITLE:=Image metadata library and tools
+  URL:=https://exiv2.org/
 endef
 
 define Package/libexiv2
-	$(call Package/exiv2/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
-	DEPENDS:=+libcurl +libexpat +libinireader +libstdcpp +zlib
-	TITLE+= (library)
+  $(call Package/exiv2/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE+= (library)
+  DEPENDS:=+libcurl +libexpat +libinireader +libstdcpp +zlib
 endef
 
 define Package/exiv2
-	$(call Package/exiv2/Default)
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	DEPENDS:=+libexiv2
+  $(call Package/exiv2/Default)
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  DEPENDS:=+libexiv2
 endef
 
 define Package/libexiv2/description
- library and a command-line utility to read, write, delete and modify Exif,
- IPTC, XMP and ICC image metadata.
+ library and a command-line utility to read, write, delete and modify
+ Exif, IPTC, XMP and ICC image metadata.
 endef
 
 Package/exiv2/description = $(Package/libexiv2/description)
