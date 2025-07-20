@@ -1,9 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -12,18 +9,21 @@ PKG_VERSION:=3.09b
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
-PKG_SOURCE_URL:=http://lcamtuf.coredump.cx/p0f3/releases
+PKG_SOURCE_URL:=https://lcamtuf.coredump.cx/p0f3/releases
 PKG_HASH:=543b68638e739be5c3e818c3958c3b124ac0ccb8be62ba274b4241dbdec00e7f
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=LGPL-2.1-or-later
+PKG_LICENSE_FILES:=docs/COPYING
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/p0f
-	SECTION:=net
-	CATEGORY:=Network
-	DEPENDS:=+libpcap
-	TITLE:=Purely passive traffic fingerprinting
-	URL:=http://lcamtuf.coredump.cx/p0f3
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=Purely passive traffic fingerprinting
+  URL:=https://lcamtuf.coredump.cx/p0f3
+  DEPENDS:=+libpcap
 endef
 
 define Package/p0f/description
