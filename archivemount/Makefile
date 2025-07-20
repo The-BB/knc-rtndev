@@ -1,9 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2011-2025 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+
 # Abandoned in 2020
 
 include $(TOPDIR)/rules.mk
@@ -17,6 +15,10 @@ PKG_SOURCE_VERSION:=78c306538065de9b14f48cfc2024f50f843d3b29
 PKG_SOURCE_URL:=https://github.com/cybernoid/archivemount
 PKG_MIRROR_HASH:=f83fc069d7157d7d7693a15285972912c5d06515fff67d3053a28ead40e78358
 
+PKG_LICENSE:=LGPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
+
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 
@@ -24,13 +26,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/archivemount
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	DEPENDS:=+libfuse +libarchive
-	TITLE:=FUSE file system for reading archives, supported by libarchive
-	URL:=https://cybernoia.de/software/archivemount.html
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=FUSE file system for reading archives, supported by libarchive
+  URL:=https://cybernoia.de/software/archivemount.html
+  DEPENDS:=+libarchive +libfuse
 endef
 
 define Package/archivemount/description
