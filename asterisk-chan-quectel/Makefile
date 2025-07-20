@@ -59,6 +59,10 @@ CONFIGURE_VARS += \
 	ac_cv_type_size_t=yes \
 	ac_cv_type_ssize_t=yes
 
+ifeq ($(CONFIG_GCC_USE_VERSION_14),y)
+TARGET_CFLAGS += -std=c99
+endif
+
 define Package/asterisk-chan-quectel/install
 	$(INSTALL_DIR) $(1)/opt/etc/asterisk
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/quectel.conf $(1)/opt/etc/asterisk
