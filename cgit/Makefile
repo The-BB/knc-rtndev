@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2009-2018 OpenWrt.org
-# Copyright (C) 2018-2024 Entware
+# Copyright (C) 2018-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -13,7 +13,7 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2024-08-02
 PKG_SOURCE_VERSION:=09d24d7cd0b7e85633f2f43808b12871bb209d69
 PKG_SOURCE_URL:=https://git.zx2c4.com/cgit
-PKG_MIRROR_HASH:=f08cf654ab31d8cc3ed1a55ba85fa306b51d496d81a5282b59cfff5d57425257
+PKG_MIRROR_HASH:=3c0249555f62b894f32eeded3254d7ac550755324387ddcdcded508f2c052cec
 
 PKG_VERSION:=$(PKG_REAL_VERSION)_git$(subst -,,$(PKG_SOURCE_DATE))~$(call version_abbrev,$(PKG_SOURCE_VERSION))
 
@@ -28,14 +28,14 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/cgit
-	TITLE:=Web interface (cgi) for Git repositories, written in C
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Version Control Systems
-	URL:=https://git.zx2c4.com/cgit/
-	DEPENDS:= \
-		+libcharset +libopenssl +libpcre2 +luajit +zlib \
-		@HAS_LUAJIT_ARCH $(ICONV_DEPENDS) $(INTL_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Version Control Systems
+  TITLE:=Web interface (cgi) for Git repositories, written in C
+  URL:=https://git.zx2c4.com/cgit/
+  DEPENDS:= \
+	+libcharset +libopenssl +libpcre2 +luajit +zlib \
+	@HAS_LUAJIT_ARCH $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/cgit/description
