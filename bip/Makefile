@@ -23,12 +23,12 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/bip
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Instant Messaging
-	TITLE:=multi user IRC proxy
-	URL:=https://projects.duckcorp.org/projects/bip
-	DEPENDS:=+libopenssl
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Instant Messaging
+  TITLE:=multi user IRC proxy
+  URL:=https://projects.duckcorp.org/projects/bip
+  DEPENDS:=+libopenssl
 endef
 
 define Package/bip/description
