@@ -1,17 +1,21 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ctags
-PKG_VERSION:=6.1.0
-PKG_RELEASE:=2
+PKG_VERSION:=6.2.1
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=7ad90a853a5aee974c757217c87a3b468855c2b1
+PKG_SOURCE_VERSION:=b8eb0da4121372b5d74a90fc36cba6a31f147f3c
 PKG_SOURCE_URL:=https://github.com/universal-ctags/ctags
-PKG_MIRROR_HASH:=627e0b7b4d8f81d4a0f55a42b5e7f4905069c2968a1c1482de8c89d5b29662ce
+PKG_MIRROR_HASH:=33e5d719f4e577e4d8212fff51287b8ea3452bd03910b4083b23d9f36a39fc70
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -20,13 +24,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/ctags
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=$(ICONV_DEPENDS) +jansson +libyaml +libxml2 +libpcre2
-	TITLE:=Universal Ctags
-	URL:=https://ctags.io
-	MAINTAINER:=Entware team, https://entware.net
-	ALTERNATIVES:=200:/opt/bin/etags:/opt/bin/ctags
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=Universal Ctags
+  URL:=https://ctags.io
+  DEPENDS:=+jansson +libpcre2 +libxml2 +libyaml $(ICONV_DEPENDS)
+  ALTERNATIVES:=200:/opt/bin/etags:/opt/bin/ctags
 endef
 
 define Package/ctags/description
