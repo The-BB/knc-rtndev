@@ -1,21 +1,22 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020-2024 Entware
-#
+# Copyright (C) 2020-2026 Entware
+
 # Abandoned in 2018
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tunsafe
 PKG_REAL_VERSION:=1.5-rc2
-PKG_VERSION:=$(subst -,_,$(PKG_REAL_VERSION))
 PKG_RELEASE:=1
 
-
 PKG_SOURCE_PROTO:=git
+PKG_SOURCE_DATE:=2018-12-17
 PKG_SOURCE_VERSION:=85a871c1d226956df7c1308a1e5527556fe35fe1
 PKG_SOURCE_URL:=https://github.com/TunSafe/TunSafe
-PKG_MIRROR_HASH:=2e2a7341453783d8c4ba0e13c252c044029567ec5cfa84b981667113a2e90ee7
+PKG_MIRROR_HASH:=3f635c0c220b23f53ec12e4f53025eebb89a6629e60495e25e5faa4da5cb1819
+
+PKG_VERSION:=$(subst -,_,$(PKG_REAL_VERSION))
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=AGPL-1.0
@@ -24,12 +25,12 @@ PKG_LICENSE_FILES:=LICENSE.AGPL.TXT
 include $(INCLUDE_DIR)/package.mk
 
 define Package/tunsafe
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=VPN
-	TITLE:=TunSafe
-	URL:=https://www.tunsafe.com/
-	DEPENDS:=+libstdcpp +(mips||mipsel):libatomic @!GCC_USE_VERSION_14
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=VPN
+  TITLE:=TunSafe
+  URL:=https://www.tunsafe.com/
+  DEPENDS:=+libstdcpp +(mips||mipsel):libatomic @!GCC_USE_VERSION_14
 endef
 
 define Package/tunsafe/description
