@@ -11,7 +11,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/trapexit/mergerfs
-PKG_MIRROR_HASH:=1a1240e05ae2a4ecf3aea6b7012c39c0b259ae300fed8444fa93a0f3c547a7e2
+PKG_MIRROR_HASH:=946988d0b60e225ace43458ebbdde6cb6085beae4125b3cc94b6f52130c18889
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=ISC
@@ -22,12 +22,12 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mergerfs
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	TITLE:=a featureful union filesystem
-	URL:=$(PKG_SOURCE_URL)
-	DEPENDS:=+(mips||mipsel):libatomic +libstdcpp
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=a featureful union filesystem
+  URL:=$(PKG_SOURCE_URL)
+  DEPENDS:=+(mips||mipsel):libatomic +libstdcpp
 endef
 
 define Package/mergerfs/description
