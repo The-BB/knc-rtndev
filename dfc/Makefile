@@ -1,30 +1,30 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2020-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dfc
 PKG_VERSION:=3.1.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/rolinh/dfc/releases/download/v$(PKG_VERSION)
 PKG_HASH:=962466e77407dd5be715a41ffc50a54fce758a78831546f03a6bb282e8692e54
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=BSD-3-Clause
+PKG_LICENSE_FILES:=LICENSE
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/dfc
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	TITLE:=file system space usage information with style
-	URL:=https://github.com/rolinh/dfc
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=file system space usage information with style
+  URL:=https://github.com/rolinh/dfc
 endef
 
 define Package/dfc/description
