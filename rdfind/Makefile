@@ -2,6 +2,8 @@
 #
 # Copyright (C) 2011-2025 Entware
 
+# 1.7.0 requires a C++17 capable compiler
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rdfind
