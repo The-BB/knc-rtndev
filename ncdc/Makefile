@@ -23,18 +23,22 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/ncdc
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=P2P
-	TITLE:=NCurses Direct Connect client
-	URL:=https://dev.yorhel.nl/ncdc
-	DEPENDS:=+bzip2 +glib2 +libgnutls +libncursesw +libsqlite3 $(ICONV_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=P2P
+  TITLE:=NCurses Direct Connect client
+  URL:=https://dev.yorhel.nl/ncdc
+  DEPENDS:=+bzip2 +glib2 +libgnutls +libmaxminddb +libncursesw +libsqlite3 \
+	$(ICONV_DEPENDS)
 endef
 
 define Package/ncdc/description
  ncdc is a modern and lightweight direct connect client with a friendly
  ncurses interface.
 endef
+
+CONFIGURE_ARGS += \
+	--with-geoip
 
 define Build/Compile
 	$(HOSTCC) $(PKG_BUILD_DIR)/deps/makeheaders.c -o $(PKG_BUILD_DIR)/makeheaders
