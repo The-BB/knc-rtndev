@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=fatrace
-PKG_VERSION:=0.18.0
+PKG_VERSION:=0.19.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/martinpitt/fatrace
-PKG_MIRROR_HASH:=1e2430dccc6a8f2aeaad2de3331d347137ce556c6657fe38fd80e18871615f01
+PKG_MIRROR_HASH:=8709563c654883334af46a9e849d0e69d8690928392a104bfdf474b46f1700eb
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-only
