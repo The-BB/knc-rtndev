@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 # Abandoned in 2018
 
@@ -8,6 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=microdc2
 PKG_REAL_VERSION:=0.15.6
+# libxml2
 PKG_RELEASE:=4
 
 PKG_SOURCE_PROTO:=git
