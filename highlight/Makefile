@@ -1,29 +1,27 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2025 Entware
+# Copyright (C) 2025-2026 Entware
+
+# https://github.com/Entware/Entware/issues/1149
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=highlight
-PKG_VERSION:=4.15
+PKG_VERSION:=4.18
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://andre-simon.de/zip
-PKG_HASH:=68b3f8178c5c9d4b0a03f6948635cef1c8d06244f6b438eebf3a190c588337e9
+PKG_HASH:=f52c211dcd5626526af45ab8e558253caa713d060709bbac22c23ceae35eb502
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=COPYING
 
-# remove it if you are using the cmake or meson build system
-PKG_INSTALL:=1
-
 PKG_BUILD_DEPENDS:=boost
 
 include $(INCLUDE_DIR)/package.mk
-#include $(INCLUDE_DIR)/cmake.mk
-#include $(INCLUDE_DIR)/meson.mk
+include $(INCLUDE_DIR)/cmake.mk
 
 define Package/highlight
   SECTION:=utils
@@ -41,8 +39,8 @@ define Package/highlight/conffiles
 /opt/etc/highlight/filetypes.conf
 endef
 
-# remove it if you are using the cmake or meson build system
-Build/Configure:=:
+CMAKE_OPTIONS += \
+	-DBUILD_GUI=OFF
 
 define Package/highlight/install
 	$(INSTALL_DIR) $(1)/opt/bin

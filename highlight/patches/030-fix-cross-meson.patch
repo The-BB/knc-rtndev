@@ -12,7 +12,7 @@
 +  'cpp',
 +  meson_version : '>=0.63',
 +  default_options : ['cpp_std=c++17', 'warning_level=3', 'optimization=2'],
-+  version : '4.15'
++  version : '4.16'
 +)
  
  cmake = import('cmake')
