@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -23,11 +23,11 @@ PKG_LICENSE_FILES:=COPYING-pingtunnel
 include $(INCLUDE_DIR)/package.mk
 
 define Package/pwnat
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Firewall
-	TITLE:=NAT traversal tool
-	URL:=https://samy.pl/pwnat/
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Firewall
+  TITLE:=NAT traversal tool
+  URL:=https://samy.pl/pwnat/
 endef
 
 define Package/pwnat/description
