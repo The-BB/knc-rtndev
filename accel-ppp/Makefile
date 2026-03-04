@@ -5,17 +5,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=accel-ppp
-PKG_VERSION:=1.13.0
+PKG_VERSION:=1.14.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/accel-ppp/accel-ppp
-PKG_MIRROR_HASH:=f1e41a8bbc789777237727984c083eaa4a14a6d3db478e92816865ef05f16dfe
+PKG_MIRROR_HASH:=230983b024e521197dbe9c9b468e70894d2bc7595b7ebf168eec5811bad8a23b
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-or-later
 PKG_LICENSE_FILES:=COPYING
-PKG_MAINTAINER:=Entware team, https://entware.net
 
 CMAKE_BINARY_SUBDIR:=openwrt-build
 

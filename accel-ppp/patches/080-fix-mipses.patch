@@ -1,0 +1,21 @@
+.../bin/ld.bfd: accel-pppd/triton/libtriton.so: undefined reference to `__sync_add_and_fetch_8'
+.../bin/ld.bfd: accel-pppd/triton/libtriton.so: undefined reference to `__sync_sub_and_fetch_8'
+
+---
+
+--- a/accel-pppd/triton/triton.h
++++ b/accel-pppd/triton/triton.h
+@@ -55,8 +55,13 @@ struct conf_sect_t
+ 
+ struct triton_stat_t
+ {
++#ifdef __mips__
++	uint32_t mempool_allocated;
++	uint32_t mempool_available;
++#else
+ 	uint64_t mempool_allocated;
+ 	uint64_t mempool_available;
++#endif
+ 	unsigned int thread_count;
+ 	unsigned int thread_active;
+ 	unsigned int context_count;

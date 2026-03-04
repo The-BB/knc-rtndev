@@ -51,7 +51,7 @@
  }
 --- a/accel-pppd/session.c
 +++ b/accel-pppd/session.c
-@@ -533,7 +533,7 @@ static void load_config(void)
+@@ -540,7 +540,7 @@ static void load_config(void)
  
  	conf_seq_file = conf_get_opt("common", "seq-file");
  	if (!conf_seq_file)
@@ -62,8 +62,8 @@
  	if (opt)
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -85,7 +85,7 @@ if (NOT BUILD_DRIVER_ONLY)
- 	add_subdirectory(crypto)
+@@ -84,7 +84,7 @@ if (NOT BUILD_DRIVER_ONLY)
+ 	add_subdirectory(accel-pppd)
  	add_subdirectory(accel-cmd)
  
 -	install(DIRECTORY DESTINATION /var/log/accel-ppp)
