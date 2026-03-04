@@ -1,20 +1,22 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=automatic
 PKG_VERSION:=0.9.0
-PKG_RELEASE:=1
+# libxml2
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=6301c30c8501c5ec0eb47ec053a4bc82f2e00193
 PKG_SOURCE_URL:=https://github.com/1100101/Automatic
 PKG_MIRROR_HASH:=4301065c951e707336b2f98fa96e57e848b0b3eeffac4d9ad33d53b2cb647d5e
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -23,13 +25,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/automatic
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=BitTorrent
-	DEPENDS:=+libcurl +libpcre +libxml2
-	TITLE:=RSS torrents downloader
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=BitTorrent
+  TITLE:=RSS torrents downloader
+  URL:=https://github.com/1100101/Automatic
+  DEPENDS:=+libcurl +libpcre +libxml2
 endef
 
 define Package/automatic/description
