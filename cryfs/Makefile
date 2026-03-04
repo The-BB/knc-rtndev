@@ -2,16 +2,18 @@
 #
 # Copyright (C) 2011-2024 Entware
 
+# XXX boost bumped
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cryfs
 PKG_VERSION:=1.0.1
-PKG_RELEASE:=1
+PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/cryfs/cryfs
-PKG_MIRROR_HASH:=9ab4f6fba7c448c7cb7eec6ba23e6de4dec8278e2f3e2cc330aadc24efb87b0a
+PKG_MIRROR_HASH:=114e999ab5b40faa200a88d199c5dd0b209f91ed2077b8003b4d8c5eb01180d4
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=LGPL-3.0-only
@@ -23,14 +25,14 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/cryfs
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	TITLE:=Cryptographic filesystem for the cloud
-	URL:=https://www.cryfs.org
-	DEPENDS:= \
-		+boost-chrono +boost-filesystem +boost-program_options \
-		+boost-thread +fuse-utils +libatomic +libcurl +libfmt
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=Cryptographic filesystem for the cloud
+  URL:=https://www.cryfs.org
+  DEPENDS:=+boost-atomic +boost-chrono +boost-container +boost-date_time
+  DEPENDS+=+boost-filesystem +boost-program_options +boost-thread
+  DEPENDS+=+fuse-utils +libfmt +libstdcpp
 endef
 
 define Package/cryfs/description
