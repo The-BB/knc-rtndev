@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=exiv2
-PKG_VERSION:=0.28.5
+PKG_VERSION:=0.28.7
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Exiv2/exiv2
-PKG_MIRROR_HASH:=722cf8f5695edf2789ef037b49c70ba8c93c748bc445200a670e28a449821525
+PKG_MIRROR_HASH:=ab346f058c5876254ccda273af76905654dcbe1ff9089d634ff01335f6c799b0
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-or-later
@@ -41,8 +41,8 @@ define Package/exiv2
 endef
 
 define Package/libexiv2/description
- library and a command-line utility to read, write, delete and modify
- Exif, IPTC, XMP and ICC image metadata.
+ library and a command-line utility to read, write, delete and modify Exif,
+ IPTC, XMP and ICC image metadata.
 endef
 
 Package/exiv2/description = $(Package/libexiv2/description)
