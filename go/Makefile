@@ -1,19 +1,19 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2016-2025 Entware
+# Copyright (C) 2016-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=go
-PKG_VERSION:=1.24.5
+PKG_VERSION:=1.26.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=go$(PKG_VERSION).src.tar.gz
-PKG_SOURCE_URL:=\
+PKG_SOURCE_URL:= \
 		https://dl.google.com/go/ \
 		https://mirrors.ustc.edu.cn/golang/ \
 		https://mirrors.nju.edu.cn/golang/
-PKG_HASH:=74fdb09f2352e2b25b7943e56836c9b47363d28dec1c8b56c4a9570f30b8f59f
+PKG_HASH:=c9132a8a1f6bd2aa4aad1d74b8231d95274950483a4950657ee6c56e6e817790
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-3-Clause
@@ -27,24 +27,26 @@ include $(TOPDIR)/feeds/golang/go_env.mk
 PKG_UNPACK:=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf $(DL_DIR)/$(PKG_SOURCE)
 
 define Package/go/Default
-	SECTION:=lang
-	CATEGORY:=Languages
-	TITLE:=The Go Programming Language
-	URL:=https://golang.org/
-	ALTERNATIVES:= \
-		100:/opt/sbin/go:/opt/bin/go/bin/go \
-		100:/opt/sbin/gofmt:/opt/bin/go/bin/gofmt
+  SECTION:=lang
+  CATEGORY:=Languages
+  TITLE:=The Go Programming Language
+  URL:=https://golang.org/
+  PROVIDES:=go
+  ALTERNATIVES:= \
+	100:/opt/sbin/go:/opt/bin/go/bin/go \
+	100:/opt/sbin/gofmt:/opt/bin/go/bin/gofmt
 endef
 
 define Package/go
-	$(call Package/go/Default)
-	VARIANT:=hf
+  $(call Package/go/Default)
+  VARIANT:=hf
+  DEFAULT_VARIANT:=1
 endef
 
 define Package/go_nohf
-	$(call Package/go/Default)
-	VARIANT:=nohf
-	DEPENDS:=@arm
+  $(call Package/go/Default)
+  VARIANT:=nohf
+  DEPENDS:=@arm
 endef
 
 define Package/go/description
@@ -89,11 +91,11 @@ endef
 
 Package/go_nohf/install=$(Package/go/install)
 
-ifneq ($(CONFIG_USE_GLIBC),y)
-  define Package/go/extra_provides
+define Package/go/extra_provides
 	echo 'libc.so.6'
-  endef
-endif
+endef
+
+Package/go_nohf/extra_provides=$(Package/go/extra_provides)
 
 $(eval $(call BuildPackage,go))
 $(eval $(call BuildPackage,go_nohf))
