@@ -6,7 +6,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=espeak-ng
 PKG_VERSION:=1.52.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
@@ -28,23 +28,23 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/espeak-ng/Default
-	TITLE:=a multi-lingual software speech synthesizer
-	URL:=https://github.com/espeak-ng/espeak-ng
-	DEPENDS:=+libstdcpp
+  TITLE:=a multi-lingual software speech synthesizer
+  URL:=https://github.com/espeak-ng/espeak-ng
+  DEPENDS:=+libstdcpp
 endef
 
 define Package/libespeak-ng
-	$(call Package/espeak-ng/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE+= (library)
+  $(call Package/espeak-ng/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE+= (library)
 endef
 
 define Package/espeak-ng
-	$(call Package/espeak-ng/Default)
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	DEPENDS+=+libespeak-ng
+  $(call Package/espeak-ng/Default)
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  DEPENDS+=+libespeak-ng
 endef
 
 define Package/libespeak-ng/description
