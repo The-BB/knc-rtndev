@@ -1,12 +1,12 @@
---- a/src/gnuchess.ini
-+++ b/src/gnuchess.ini
+--- a/doc/gnuchess.ini.in
++++ b/doc/gnuchess.ini.in
 @@ -6,16 +6,16 @@ LogFile = adapter.log
  Resign = true
  ResignMoves = 1 # 1 is safe for Fruit
  
 -Book = false
 +Book = true
- BookFile = smallbook.bin
+ BookFile = @PKGDATADIR@/smallbook.bin
  
  [Engine]
  
@@ -19,4 +19,4 @@
 +NalimovCache = 2 # in MB
  
  OwnBook =  false # false for no book (e.g. Nunn-like matches)
- BookFile = smallbook.bin
+ BookFile = @PKGDATADIR@/smallbook.bin
