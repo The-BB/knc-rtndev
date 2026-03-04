@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
 
 # Abandoned in 2018
 
@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ympd
 PKG_REAL_VERSION:=1.3.0
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2018-03-29
@@ -26,11 +26,11 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/ympd
-	SECTION:=sound
-	CATEGORY:=Sound
-	TITLE:=MPD Web GUI
-	URL:=http://www.ympd.org/
-	DEPENDS:=+libmpdclient +libopenssl
+  SECTION:=sound
+  CATEGORY:=Sound
+  TITLE:=MPD Web GUI
+  URL:=http://www.ympd.org/
+  DEPENDS:=+libmpdclient +libopenssl
 endef
 
 define Package/ympd/description
