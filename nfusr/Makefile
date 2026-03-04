@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 # Project archieved
 
@@ -29,12 +29,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/nfusr
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Filesystem
-	TITLE:=NFS client in userspace
-	URL:=https://github.com/facebookincubator/nfusr
-	DEPENDS:=+fuse-utils +libnfs +libstdcpp $(ICONV_DEPENDS) $(INTL_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=NFS client in userspace
+  URL:=https://github.com/facebookincubator/nfusr
+  DEPENDS:=+fuse-utils +libnfs +libstdcpp $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/nfusr/description
