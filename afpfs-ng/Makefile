@@ -24,12 +24,12 @@ include $(INCLUDE_DIR)/meson.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/afpfs-ng
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Filesystem
-	TITLE:=a client for Apple Filing Protocol
-	URL:=https://github.com/simonvetter/afpfs-ng
-	DEPENDS:=+libfuse +libgcrypt +libreadline +USE_GLIBC:libbsd $(ICONV_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=a client for Apple Filing Protocol
+  URL:=https://github.com/simonvetter/afpfs-ng
+  DEPENDS:=+libfuse +libgcrypt +libreadline +USE_GLIBC:libbsd $(ICONV_DEPENDS)
 endef
 
 define Package/afpfs-ng/description
