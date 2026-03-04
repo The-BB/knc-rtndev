@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2024 Entware
+# Copyright (C) 2017-2026 Entware
 
 # Initial port of shellinabox to OpenWrt - Jan Jaeger 25-MAR-2010
 # Makefile from OnionIoT/OpenWRT-Packages was used as a start
@@ -8,25 +8,24 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shellinabox
-PKG_VERSION:=2.20
-PKG_RELEASE:=2
+PKG_VERSION:=2.21
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=048cecd2e77d659c8fefcd2e7dc437c533abeab4
+PKG_SOURCE_VERSION:=4f0ecc31ac6f985e0dd3f5a52cbfc0e9251f6361
 PKG_SOURCE_URL:=https://github.com/shellinabox/shellinabox
-PKG_MIRROR_HASH:=f8d3e591a97fe47a1a9b223feec139a6ceb363ade07b083742cc471a9d75898d
+PKG_MIRROR_HASH:=4859401b040d3df0fd96a3cd88300383a1b20abde1b6a49471f85f3ff0df7cde
 
 PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/shellinabox
-	SECTION:=net
-	CATEGORY:=Network
-	TITLE:=Shell In A Box
-	DEPENDS:=+libopenssl
-	URL:=https://github.com/shellinabox/shellinabox
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=Shell In A Box
+  URL:=https://github.com/shellinabox/shellinabox
+  DEPENDS:=+libopenssl
 endef
 
 define Package/shellinabox/description
