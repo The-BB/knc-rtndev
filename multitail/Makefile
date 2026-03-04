@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=multitail
 PKG_VERSION:=7.1.5
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/folkertvanheusden/multitail
-PKG_MIRROR_HASH:=8e21f68e3913d0e2e606359080d52a5bfe811f3b4582b7d29b406c9ad21a2461
+PKG_MIRROR_HASH:=c0820648d64c6785eba49d9f48bb410d387a2610222e7e2b6a61d1283e84515b
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=MIT
@@ -21,16 +21,16 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/multitail
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=log file monitor
-	URL:=https://www.vanheusden.com/multitail
-	DEPENDS:=+libncursesw
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=log file monitor
+  URL:=https://www.vanheusden.com/multitail
+  DEPENDS:=+libncursesw
 endef
 
 define Package/multitail/description
- MultiTail allows you to monitor logfiles and command output in
- multiple windows in a terminal, colorize, filter and merge.
+ MultiTail allows you to monitor logfiles and command output in multiple
+ windows in a terminal, colorize, filter and merge.
 endef
 
 define Package/multitail/conffiles
