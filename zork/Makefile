@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 # Abandoned in 2018
 
@@ -25,10 +25,10 @@ PKG_LICENSE_FILES:=
 include $(INCLUDE_DIR)/package.mk
 
 define Package/zork
-	SECTION:=games
-	CATEGORY:=Games
-	TITLE:=text adventure game (also named as Dungeon)
-	URL:=http://richelbilderbeek.nl/GameZork.htm
+  SECTION:=games
+  CATEGORY:=Games
+  TITLE:=text adventure game (also named as Dungeon)
+  URL:=http://richelbilderbeek.nl/GameZork.htm
 endef
 
 define Package/zork/description
