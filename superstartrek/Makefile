@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -17,11 +17,11 @@ PKG_UNPACK:=unzip -j $(DL_DIR)/$(PKG_SOURCE) -d $(BUILD_DIR)/$(PKG_NAME)-$(PKG_V
 include $(INCLUDE_DIR)/package.mk
 
 define Package/superstartrek
-	SECTION:=games
-	CATEGORY:=Games
-	TITLE:=A quite possibly the best of the Star Trek games from the 1970s
-	URL:=https://www.almy.us/sst.html
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=games
+  CATEGORY:=Games
+  TITLE:=A quite possibly the best of the Star Trek games from the 1970s
+  URL:=https://www.almy.us/sst.html
+  MAINTAINER:=Entware team, https://entware.net
 endef
 
 define Package/superstartrek/description
