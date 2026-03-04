@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=oscam
-PKG_VERSION:=2.25.05
+PKG_VERSION:=2.26.01
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=11884
+PKG_SOURCE_VERSION:=11922
 PKG_SOURCE_URL:=https://git.streamboard.tv/common/oscam
-PKG_MIRROR_HASH:=91925383dcde1164f35030b64a41ce3f36ceb2fab12db8cb1488225e71f499ec
+PKG_MIRROR_HASH:=dc7818fa5f59952cff1bda5b112f614ddab4c62210cefc1aed2ea6c71c0fc5f1
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
@@ -29,8 +29,8 @@ define Package/oscam
 endef
 
 define Package/oscam/description
- OSCam is an Open Source Conditional Access Module software, based
- on the very good MpCS version 0.9d.
+ OSCam is an Open Source Conditional Access Module software, based on the very
+ good MpCS version 0.9d.
 endef
 
 define Package/oscam/conffiles
