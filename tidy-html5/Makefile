@@ -1,20 +1,18 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2021-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tidy-html5
 PKG_VERSION:=5.8.0
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/htacg/tidy-html5/tar.gz/refs/tags/$(PKG_VERSION)?
 PKG_HASH:=59c86d5b2e452f63c5cdb29c866a12a4c55b1741d7025cf2f3ce0cde99b0660e
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=README/LICENSE.md README/LICENSE.txt
 
@@ -24,21 +22,20 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/tidy-html5/Default
-	TITLE:=HTACG HTML Tidy
-	URL:=http://www.html-tidy.org/
-	MAINTAINER:=Entware team, https://entware.net
+  TITLE:=HTACG HTML Tidy
+  URL:=http://www.html-tidy.org/
 endef
 
 define Package/libtidy
-	$(call Package/tidy-html5/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
+  $(call Package/tidy-html5/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
 endef
 
 define Package/tidy-html5
-	$(call Package/tidy-html5/Default)
-	SECTION:=utils
-	CATEGORY:=Utilities
+  $(call Package/tidy-html5/Default)
+  SECTION:=utils
+  CATEGORY:=Utilities
 endef
 
 define Package/tidy-html5/description
