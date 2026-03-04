@@ -4,15 +4,21 @@
 #
 # This is the last version without qtcore dependency (58.0.0)
 
+# XXX boost bumped
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mkvtoolnix
 PKG_VERSION:=77.0
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://mkvtoolnix.download/sources
 PKG_HASH:=5f0cb2b7afe39226d0d41bd7ba098db669981da8c4b455862faffae04ca8e57a
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-only
+PKG_LICENSE_FILES:=COPYING
 
 PKG_FIXUP:=autoreconf
 PKG_BUILD_DEPENDS:=ruby/host pugixml libmatroska
@@ -21,13 +27,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/mkvtoolnix
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	DEPENDS:=+boost-filesystem +boost-system +libflac +libfmt +libgmp +libogg \
-		 +libvorbis +qt5-core +zlib $(ICONV_DEPENDS) $(INTL_DEPENDS)
-	TITLE:=tools for Matroska files
-	URL:=http://matroska.org/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  TITLE:=tools for Matroska files
+  URL:=http://matroska.org/
+  DEPENDS:=+boost-filesystem +libflac +libfmt +libgmp +libogg \
+	+libvorbis +qt5-core +zlib $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/mkvtoolnix/description
