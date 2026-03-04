@@ -20,11 +20,11 @@ PKG_LICENSE_FILES:=copying
 include $(INCLUDE_DIR)/package.mk
 
 define Package/3proxy
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
-	TITLE:=tiny free proxy server
-	URL:=https://3proxy.org/
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Web Servers/Proxies
+  TITLE:=tiny free proxy server
+  URL:=https://3proxy.org/
 endef
 
 define Package/3proxy/description
