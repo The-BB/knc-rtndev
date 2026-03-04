@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=crawl
-PKG_VERSION:=0.33.0
+PKG_VERSION:=0.33.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/crawl/crawl/tar.gz/$(PKG_VERSION)?
-PKG_HASH:=d5b1cd9419fafb517174d573a6645dc839292b655361ada9ac42262672c1b8da
+PKG_HASH:=c9b998dc7d3247c3ac68be6ac81fa8c2e743a232a7bbd6b1aff3011478e7e3d9
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-only
@@ -21,11 +21,11 @@ PKG_BUILD_DEPENDS:=python-yaml/host
 include $(INCLUDE_DIR)/package.mk
 
 define Package/crawl
-	SECTION:=games
-	CATEGORY:=Games
-	TITLE:=Dungeon Crawl Stone Soup is a role-playing roguelike game
-	URL:=https://crawl.develz.org
-	DEPENDS:=+liblua +libncursesw +libsqlite3 +libstdcpp +zlib
+  SECTION:=games
+  CATEGORY:=Games
+  TITLE:=Dungeon Crawl Stone Soup is a role-playing roguelike game
+  URL:=https://crawl.develz.org
+  DEPENDS:=+liblua +libncursesw +libsqlite3 +libstdcpp +zlib
 endef
 
 define Package/crawl/description
