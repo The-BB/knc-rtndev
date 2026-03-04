@@ -29,7 +29,8 @@ endef
 
 define Build/Compile
 	$(TARGET_CXX) $(TARGET_CFLAGS) $(TARGET_CPPFLAGS) $(TARGET_LDFLAGS) \
-	-fsigned-char -o $(PKG_BUILD_DIR)/hlspxd \
+		-fsigned-char -o \
+		$(PKG_BUILD_DIR)/hlspxd \
 		$(PKG_BUILD_DIR)/hlspxd.cpp \
 		$(PKG_BUILD_DIR)/platform.cpp \
 		$(PKG_BUILD_DIR)/utils.cpp \
