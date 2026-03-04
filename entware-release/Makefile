@@ -1,22 +1,27 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2025 Entware
+# Copyright (C) 2017-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=entware-release
-PKG_VERSION:=2025.07
+PKG_VERSION:=2026.03
 PKG_RELEASE:=1
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-only
+PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 define Package/entware-release
-	SECTION:=base
-	CATEGORY:=Base system
-	TITLE:=Entware release information
-	MAINTAINER:=Entware team, https://entware.net
-	PKGARCH:=all
+  SECTION:=base
+  CATEGORY:=Base system
+  TITLE:=Entware release information
+  URL:=https://entware.net
+  PKGARCH:=all
+  PKG_DEFAULT_DEPENDS:=
 endef
 
 define Package/entware-release/description
@@ -50,6 +55,12 @@ LIBCTYPE=musl
 LIBC_VERSION=$(call qstrip,$(CONFIG_MUSL_VERSION))
 endif
 
+ifeq ($(CONFIG_USE_APK),y)
+PM="APK (Alpine Package Keeper)"
+else
+PM="OPKG (Open PacKaGe Management)"
+endif
+
 # skip steps
 Build/Prepare:=:
 Build/Configure:=:
@@ -57,8 +68,8 @@ Build/Compile:=:
 
 define Package/entware-release/install
 	$(INSTALL_DIR) $(1)/opt/etc
-	echo "PRETTY_NAME=\"Entware-Keenetic $(PKG_VERSION)\"" > $(1)/opt/etc/entware_release
-	echo "NAME=\"Entware-Keenetic\"" >> $(1)/opt/etc/entware_release
+	echo "PRETTY_NAME=\"Entware Keenetic/NetCraze $(PKG_VERSION)\"" > $(1)/opt/etc/entware_release
+	echo "NAME=\"Entware Keenetic/NetCraze\"" >> $(1)/opt/etc/entware_release
 	echo "VERSION_ID=\"$(PKG_VERSION)\"" >> $(1)/opt/etc/entware_release
 	echo "VERSION=\"$(PKG_VERSION) (sync with OpenWrt)\"" >> $(1)/opt/etc/entware_release
 	echo "ID=entware" >> $(1)/opt/etc/entware_release
@@ -67,16 +78,18 @@ define Package/entware-release/install
 	echo "BUG_REPORT_URL=\"empty\"" >> $(1)/opt/etc/entware_release
 	echo "" >> $(1)/opt/etc/entware_release
 	echo "Build summary:" >> $(1)/opt/etc/entware_release
-	echo "Linux Kernel $(LINUX_VERSION)" >> $(1)/opt/etc/entware_release
-	echo "arch=$(ARCH)" >> $(1)/opt/etc/entware_release
-	echo "cpu_type=$(CPUTYPE)" >> $(1)/opt/etc/entware_release
-	echo "cpu_subtype=$(CPUSUBTYPE)" >> $(1)/opt/etc/entware_release
-	echo "float=$(FLOAT)" >> $(1)/opt/etc/entware_release
-	echo "binutils_version=\"$(call qstrip,$(CONFIG_BINUTILS_VERSION))\"" >> $(1)/opt/etc/entware_release
-	echo "gcc_version=\"$(call qstrip,$(CONFIG_GCC_VERSION))\"" >> $(1)/opt/etc/entware_release
-	echo "gcc_flags=\"$(ENVCFLAGS)\"" >> $(1)/opt/etc/entware_release
-	echo "libc_type=$(LIBCTYPE)" >> $(1)/opt/etc/entware_release
-	echo "libc_version=\"$(LIBC_VERSION)\"" >> $(1)/opt/etc/entware_release
+	echo "Linux Kernel Version: $(LINUX_VERSION)" >> $(1)/opt/etc/entware_release
+	echo "CPU Architecture: $(ARCH)" >> $(1)/opt/etc/entware_release
+	echo "CPU Type: $(CPUTYPE)" >> $(1)/opt/etc/entware_release
+	echo "CPU SubType: $(CPUSUBTYPE)" >> $(1)/opt/etc/entware_release
+	echo "Floating Point: $(FLOAT)" >> $(1)/opt/etc/entware_release
+	echo "Binutils Version: $(call qstrip,$(CONFIG_BINUTILS_VERSION))" >> $(1)/opt/etc/entware_release
+	echo "GCC Version: $(call qstrip,$(CONFIG_GCC_VERSION))" >> $(1)/opt/etc/entware_release
+	echo "GCC Flags: \"$(ENVCFLAGS)\"" >> $(1)/opt/etc/entware_release
+	echo "C Library: $(LIBCTYPE)" >> $(1)/opt/etc/entware_release
+	echo "C Library Version: $(LIBC_VERSION)" >> $(1)/opt/etc/entware_release
+	echo "" >> $(1)/opt/etc/entware_release
+	echo "Package Manager: $(PM)" >> $(1)/opt/etc/entware_release
 endef
 
 $(eval $(call BuildPackage,entware-release))
