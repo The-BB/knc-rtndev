@@ -5,13 +5,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=airsane
-PKG_VERSION:=0.4.5
+PKG_VERSION:=0.4.6
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/SimulPiscator/AirSane
-PKG_MIRROR_HASH:=2e08eecc7fc102be360cfb58aa28a879562ca847d98cf6d5da3939c9358fc839
+PKG_MIRROR_HASH:=d8929e7467292efaf790c20a12fd5b9bdd446bb9329b8e5db1c39427d9c6daec
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-only
@@ -22,11 +22,11 @@ include $(INCLUDE_DIR)/cmake.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/airsane
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=+libavahi-client +sane-libs
-	TITLE:=AirScan Scanner publisher
-	URL:=$(PKG_SOURCE_URL)
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=AirScan Scanner publisher
+  URL:=$(PKG_SOURCE_URL)
+  DEPENDS:=+libavahi-client +sane-libs
 endef
 
 define Package/airsane/description
