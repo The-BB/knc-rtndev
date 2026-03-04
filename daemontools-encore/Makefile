@@ -15,9 +15,9 @@ PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/bruceg/daemontools-encore
 PKG_MIRROR_HASH:=fe58cf45587a8e3c4f72eb2f91f60c364128be1cb74d14b23a2b7ff2ddc978cf
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
-PKG_MAINTAINER:=Entware team, https://entware.net
 
 include $(INCLUDE_DIR)/package.mk
 
