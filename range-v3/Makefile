@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2023-2024 Entware
+# Copyright (C) 2023-2025 Entware
 
 # XXX headers only (cryfs)
 
@@ -8,15 +8,15 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=range-v3
 PKG_VERSION:=0.12.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/ericniebler/range-v3/tar.gz/refs/tags/$(PKG_VERSION)?
 PKG_HASH:=015adb2300a98edfceaf0725beec3337f542af4915cec4d0b89fa0886f4ba9cb
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSL-1.0
 PKG_LICENSE_FILES:=LICENSE.txt
-PKG_MAINTAINER:=Entware team, https://entware.net
 
 CMAKE_INSTALL:=1
 
