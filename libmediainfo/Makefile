@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libmediainfo
-PKG_VERSION:=25.04
+PKG_VERSION:=25.10
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/MediaArea/MediaInfoLib
-PKG_MIRROR_HASH:=6674cd37010315f9c0d868e4d8b1d50add0581342170c28cc234487e659909b0
+PKG_MIRROR_HASH:=086fbd65dd6f611ee0f093bd9ab9615f301152924c2801706053e11bc87ae86f
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-2-Clause
