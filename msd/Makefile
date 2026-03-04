@@ -2,6 +2,8 @@
 #
 # Copyright (C) 2017-2025 Entware
 
+# The newer version reuires SYS_pidfd_open syscall
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=msd
@@ -11,7 +13,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=2975b18a02cad4887d2032d0944bc2179fb0a560
 PKG_SOURCE_URL:=https://github.com/rozhuk-im/msd
-PKG_MIRROR_HASH:=499d488fdaaa2abbd9e78a022a65c98e74c9d24767a6ed8e85685d3c1982be61
+PKG_MIRROR_HASH:=18e6e0fbd2faf669ad340cf73d08183710e3029a762ca03156632f9ce9bee031
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-2-Clause
