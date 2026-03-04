@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ENABLED=yes
+
+DESC="Endlessh"
+PROCS="endlessh"
+PROG="/opt/sbin/$PROCS"
+
+ARGS="-f /opt/etc/$PROCS"
+PREARGS=""
+
+. /opt/etc/init.d/rc.func
