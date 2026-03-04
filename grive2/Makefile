@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
+# Copyright (C) 2011-2025 Entware
 
 # XXX boost bumped
 
@@ -8,26 +8,29 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=grive2
 PKG_VERSION:=0.5.3
-PKG_RELEASE:=6
+PKG_RELEASE:=9
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=d03c4a24ceb179d0fdb4c47e3d144d547ffcc8b6
 PKG_SOURCE_URL:=https://github.com/vitalif/grive2
 PKG_MIRROR_HASH:=20eaafe0cb4fe0c58ef6ba0bbfd8f7be9f3b4f5de32cdc3d67edbdf43f00d43c
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=LICENSE
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/grive2
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Filesystem
-	DEPENDS:=+libcurl +yajl +libstdcpp +libgcrypt +libbfd +boost-filesystem \
-		+boost-program_options +boost-regex +boost-test +boost-system
-	TITLE:=a fork of original Google Drive client
-	URL:=https://github.com/vitalif/grive2
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=a fork of original Google Drive client
+  URL:=https://github.com/vitalif/grive2
+  DEPENDS:=+boost-atomic +boost-filesystem +boost-program_options +boost-regex
+  DEPENDS+=+libbfd +libcurl +libgcrypt +libgpg-error +libstdcpp +yajl $(INTL_DEPENDS)
 endef
 
 define Package/grive2/description
