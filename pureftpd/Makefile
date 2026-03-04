@@ -24,12 +24,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/pureftpd
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=File Transfer
-	TITLE:=Pure FTP server
-	URL:=https://www.pureftpd.org/
-	DEPENDS:=+libmariadb +libopenssl +libsodium +zlib
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=File Transfer
+  TITLE:=Pure FTP server
+  URL:=https://www.pureftpd.org/
+  DEPENDS:=+libmariadb +libopenssl +libsodium +zlib
 endef
 
 define Package/pureftpd/description
