@@ -20,12 +20,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/python3-regex
-	SECTION:=lang
-	CATEGORY:=Languages
-	SUBMENU:=Python
-	TITLE:=alternative regular expression module, to replace re
-	URL:=https://github.com/mrabarnett/mrab-regex
-	DEPENDS:=+python3-codecs +python3-urllib
+  SECTION:=lang
+  CATEGORY:=Languages
+  SUBMENU:=Python
+  TITLE:=alternative regular expression module, to replace re
+  URL:=https://github.com/mrabarnett/mrab-regex
+  DEPENDS:=+python3-codecs +python3-urllib
 endef
 
 define Package/python3-regex/description
