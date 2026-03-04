@@ -1,33 +1,33 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=encfs
 PKG_VERSION:=1.9.5
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=7fc3730f67888106ade57a66d3da10a9f825d199
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/vgough/encfs
 PKG_MIRROR_HASH:=3bcd422c96dd289c339c529e438854559df9d21a45b16f030ed33b987e0ba98e
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-3.0-or-later LGPL-3.0-or-later MIT
+PKG_LICENSE_FILES:=COPYING COPYING.GPL COPYING.LGPL
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/encfs
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	DEPENDS:=+libopenssl +libstdcpp +fuse-utils +libatomic $(ICONV_DEPENDS) $(INTL_DEPENDS)
-	TITLE:=encrypted filesystem in user-space
-	URL:=http://www.arg0.net/#!encfs/c1awt
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=encrypted filesystem in user-space
+  URL:=http://www.arg0.net/#!encfs/c1awt
+  DEPENDS:=+fuse-utils +libatomic +libopenssl +libstdcpp $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/encfs/description
