@@ -14,6 +14,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/neovim/unibilium/tar.gz/refs/tags/v$(PKG_VERSION)?
 PKG_HASH:=370ecb07fbbc20d91d1b350c55f1c806b06bf86797e164081ccc977fc9b3af7a
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later LGPL-3.0-or-later
 PKG_LICENSE_FILES:=GPLv3 LGPLv3 LICENSE
 
@@ -25,7 +26,6 @@ define Package/unibilium
   CATEGORY:=Libraries
   TITLE:=a terminfo parsing library
   URL:=https://github.com/mauke/unibilium
-  PKG_MAINTAINER:=Entware team, https://entware.net
   BUILDONLY:=1
 endef
 
