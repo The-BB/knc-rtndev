@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libnfs
 PKG_VERSION:=5.0.3
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_NAME)-$(PKG_VERSION)
@@ -23,24 +23,24 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/libnfs/Default
-	SUBMENU:=Filesystem
-	TITLE:=NFS client library
-	URL:=$(PKG_SOURCE_URL)
+  SUBMENU:=Filesystem
+  TITLE:=NFS client library
+  URL:=$(PKG_SOURCE_URL)
 endef
 
 define Package/libnfs
-	$(call Package/libnfs/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE+= (shared library)
+  $(call Package/libnfs/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE+= (shared library)
 endef
 
 define Package/libnfs-utils
-	$(call Package/libnfs/Default)
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE+= (binaries)
-	DEPENDS:=+libnfs
+  $(call Package/libnfs/Default)
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE+= (binaries)
+  DEPENDS:=+libnfs
 endef
 
 define Package/libnfs/description
