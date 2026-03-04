@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 # This is the last version without G_SockList objects
 
@@ -25,12 +25,12 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 
 define Package/ngrok-c
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
-	TITLE:=client of ngrok in language C
-	URL:=$(PKG_SOURCE_URL)
-	DEPENDS:=+libopenssl +libstdcpp
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Web Servers/Proxies
+  TITLE:=client of ngrok in language C
+  URL:=$(PKG_SOURCE_URL)
+  DEPENDS:=+libopenssl +libstdcpp
 endef
 
 define Package/ngrok-c/description
