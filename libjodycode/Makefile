@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2023-2025 Entware
+# Copyright (C) 2023-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libjodycode
-PKG_VERSION:=3.1.2
+PKG_VERSION:=4.1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://codeberg.org/jbruchon/libjodycode
-PKG_MIRROR_HASH:=0df4b4c5a9912f87c6c13e97c8b937b61c1304850a13362452de0ba73c1e7d86
+PKG_MIRROR_HASH:=1dac45d9777169a505f9dccdb7196d695af2da7b2075110cc52ca5881c622dbf
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=MIT
@@ -22,11 +22,11 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/libjodycode
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE:=Jody Bruchon library
-	URL:=https://www.jodybruchon.com/software/
-	BUILDONLY:=1
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE:=Jody Bruchon library
+  URL:=https://www.jodybruchon.com/software/
+  BUILDONLY:=1
 endef
 
 define Package/libjodycode/description
