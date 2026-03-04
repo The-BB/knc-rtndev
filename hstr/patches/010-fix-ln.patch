@@ -9,6 +9,6 @@ ln: failed to create hard link '.../ipkg-install/opt/bin/hh': File exists
  # create hstr > hh hard link on installation
  install-exec-hook:
 -	ln $(DESTDIR)$(bindir)/hstr$(EXEEXT) $(DESTDIR)$(bindir)/hh$(EXEEXT)
-+	ln -f $(DESTDIR)$(bindir)/hstr$(EXEEXT) $(DESTDIR)$(bindir)/hh$(EXEEXT)
++	ln -sf $(DESTDIR)$(bindir)/hstr$(EXEEXT) $(DESTDIR)$(bindir)/hh$(EXEEXT)
  
  hstr_LDADD = $(NCURSES_LIBS)
