@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -23,11 +23,11 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 
 define Package/xupnpd2
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	TITLE:=eXtensible UPnP agent v.2
-	URL:=https://github.com/clark15b/xupnpd2
-	DEPENDS:=+liblua5.3 +libopenssl +libsqlite3 +libstdcpp +libuuid
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  TITLE:=eXtensible UPnP agent v.2
+  URL:=https://github.com/clark15b/xupnpd2
+  DEPENDS:=+liblua5.3 +libopenssl +libsqlite3 +libstdcpp +libuuid
 endef
 
 define Package/xupnpd2/description
@@ -35,7 +35,6 @@ define Package/xupnpd2/description
  ability to broadcast IPTV and OTT into local network, as well as video,
  photos and music from the home archive to any a DLNA-compatible device.
 endef
-
 
 define Package/xupnpd2/conffiles
 /opt/etc/xupnpd2/xupnpd.cfg
@@ -53,7 +52,6 @@ endif
 TARGET_CXXFLAGS += -I$(STAGING_DIR)/opt/include/lua5.3
 
 TARGET_LDFLAGS += -ldl -luuid -lsqlite3 -llua5.3 -lssl -lcrypto
-
 
 define Package/xupnpd2/install
 	$(INSTALL_DIR) $(1)/opt/sbin
