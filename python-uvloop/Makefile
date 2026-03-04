@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020-2025 Entware
+# Copyright (C) 2020-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uvloop
-PKG_VERSION:=0.21.0
+PKG_VERSION:=0.22.1
 PKG_RELEASE:=1
 
-PYPI_NAME:=$(PKG_NAME)
-PKG_HASH:=3bf12b0fda68447806a7ad847bfa591613177275d35b6724b1ee573faa3704e3
+PYPI_NAME:=uvloop
+PKG_HASH:=6c84bae345b9147082b17371e3dd5d42775bddce91f885499017f4607fdaf39f
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=Apache-2.0 MIT
@@ -22,14 +22,14 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/python3-uvloop
-	SECTION:=lang
-	CATEGORY:=Languages
-	SUBMENU:=Python
-	TITLE:=fast implementation of asyncio event loop on top of libuv
-	URL:=http://github.com/MagicStack/uvloop
-	DEPENDS:= \
-		+libuv +python3-asyncio +python3-logging +python3-openssl \
-		+python3-unittest
+  SECTION:=lang
+  CATEGORY:=Languages
+  SUBMENU:=Python
+  TITLE:=fast implementation of asyncio event loop on top of libuv
+  URL:=http://github.com/MagicStack/uvloop
+  DEPENDS:= \
+	+libuv +python3-asyncio +python3-logging +python3-openssl \
+	+python3-unittest
 endef
 
 define Package/python3-uvloop/description
