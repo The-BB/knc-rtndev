@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2025 Entware
+# Copyright (C) 2017-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=jdupes
-PKG_VERSION:=1.28.0
+PKG_VERSION:=1.31.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://codeberg.org/jbruchon/jdupes
-PKG_MIRROR_HASH:=d15e6090bc7ed9d38c1699a41370715a385f3eb6f66af3cf49f96b03afa000ba
+PKG_MIRROR_HASH:=c4c1d64255aa45c8b627032499b82fb9f2e9c4d0db3515a5211a81dbad801eab
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=MIT
@@ -22,10 +22,10 @@ PKG_BUILD_DEPENDS:=libjodycode
 include $(INCLUDE_DIR)/package.mk
 
 define Package/jdupes
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=duplicate files finder
-	URL:=https://www.jdupes.com/
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=duplicate files finder
+  URL:=https://www.jdupes.com/
 endef
 
 define Package/jdupes/description
