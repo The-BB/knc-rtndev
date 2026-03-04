@@ -24,12 +24,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/shake
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	TITLE:=defragmentation utility
-	URL:=https://vleu.net/projects/shake/
-	DEPENDS:=+libattr
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=defragmentation utility
+  URL:=https://vleu.net/projects/shake/
+  DEPENDS:=+libattr
 endef
 
 define Package/shake/description
