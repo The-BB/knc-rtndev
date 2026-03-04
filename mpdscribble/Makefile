@@ -19,6 +19,8 @@ PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-or-later
 PKG_LICENSE_FILES:=COPYING
 
+PKG_BUILD_DEPENDS:=boost
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
@@ -41,6 +43,8 @@ endef
 
 MESON_ARGS += \
 	-Dsystemd=disabled
+
+MESON_VARS += BOOST_ROOT=$(STAGING_DIR)/opt
 
 define Package/mpdscribble/install
 	$(INSTALL_DIR) $(1)/opt/bin
