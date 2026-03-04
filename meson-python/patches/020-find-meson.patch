@@ -1,6 +1,6 @@
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -65,6 +65,8 @@ repository = 'https://github.com/mesonbu
+@@ -62,6 +62,8 @@ repository = 'https://github.com/mesonbu
  documentation = 'https://mesonbuild.com/meson-python/'
  changelog = 'https://mesonbuild.com/meson-python/changelog.html'
  

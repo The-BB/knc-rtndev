@@ -1,6 +1,6 @@
 --- a/mesonpy/__init__.py
 +++ b/mesonpy/__init__.py
-@@ -637,10 +637,10 @@ class Project():
+@@ -648,10 +648,10 @@ class Project():
          editable_verbose: bool = False,
      ) -> None:
          self._source_dir = pathlib.Path(source_dir).absolute()
