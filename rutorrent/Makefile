@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rutorrent
-PKG_VERSION:=5.2.5
+PKG_VERSION:=5.2.10
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Novik/ruTorrent
-PKG_MIRROR_HASH:=b03a42bb6cb020f877d221b3cf5bf0f4e1b4a8583b07f76ceab69d56eea78168
+PKG_MIRROR_HASH:=28fab85071ad69f94f525bd8f2d0898f4fd0c343582ca047eaf2581d032a9d37
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-3.0-or-later
@@ -80,17 +80,17 @@ RUTORRENT_PLUGIN_DEPENDS__task = +procps-ng-pgrep
 RUTORRENT_PLUGIN_DEPENDS_unpack = +unrar +unzip
 
 define Package/rutorrent/Default
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=BitTorrent
-	TITLE:=Yet another web front-end for rTorrent
-	URL:=$(PKG_SOURCE_URL)
-	DEPENDS:=+coreutils-id +coreutils-stat +curl +gzip +rtorrent-rpc
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=BitTorrent
+  TITLE:=Yet another web front-end for rTorrent
+  URL:=$(PKG_SOURCE_URL)
+  DEPENDS:=+coreutils-id +coreutils-stat +curl +gzip +rtorrent-rpc
 endef
 
 define Package/rutorrent
-	$(call Package/rutorrent/Default)
-	MENU:=1
+  $(call Package/rutorrent/Default)
+  MENU:=1
 endef
 
 define Package/rutorrent/description
@@ -98,15 +98,15 @@ define Package/rutorrent/description
 endef
 
 define GenPlugin
- define Package/$(1)
+  define Package/$(1)
 	$(call Package/rutorrent/Default)
 	DEPENDS:=rutorrent $(RUTORRENT_PLUGIN_DEPENDS_$(2))
 	TITLE:=ruTorrent $(2) plugin
- endef
+  endef
 
- define Package/$(1)/description
-  This is a $(2) Rutorrent plugin.
- endef
+  define Package/$(1)/description
+	This is a $(2) Rutorrent plugin.
+  endef
 endef
 
 $(foreach a,$(RUTORRENT_PLUGINS),$(eval $(call GenPlugin,rutorrent-plugin-$(a),$(a))))
