@@ -5,13 +5,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=7-zip
-PKG_VERSION:=24.09
+PKG_VERSION:=25.01
 PKG_RELEASE:=1
 
 PKG_SOURCE:=7z$(subst .,,$(PKG_VERSION))-src.tar.xz
 PKG_SOURCE_URL:=https://www.7-zip.org/a
-PKG_HASH:=49c05169f49572c1128453579af1632a952409ced028259381dac30726b6133a
+PKG_HASH:=ed087f83ee789c1ea5f39c464c55a5c9d4008deb0efe900814f2df262b82c36e
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=LGPL-2.0-only
 
 include $(INCLUDE_DIR)/package.mk
@@ -19,13 +20,12 @@ include $(INCLUDE_DIR)/package.mk
 PKG_UNPACK:=$(HOST_TAR) -C $(PKG_BUILD_DIR) -xf $(DL_DIR)/$(PKG_SOURCE)
 
 define Package/7-zip
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Compression
-	DEPENDS:=+libstdcpp
-	TITLE:=file archiver with a high compression ratio
-	URL:=https://www.7-zip.org
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Compression
+  TITLE:=file archiver with a high compression ratio
+  URL:=https://www.7-zip.org
+  DEPENDS:=+libstdcpp
 endef
 
 define Package/7-zip/description
