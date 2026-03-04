@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2021 Entware
+# Copyright (C) 2017-2026 Entware
 
 # The newer versions (5.0+)  requires Rust
 
