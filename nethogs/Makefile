@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -21,11 +21,11 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
 define Package/nethogs
-	SECTION:=net
-	CATEGORY:=Network
-	TITLE:=Linux 'net top' tool
-	URL:=https://github.com/raboof/nethogs
-	DEPENDS:=+libncursesw +libpcap +libstdcpp
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=Linux 'net top' tool
+  URL:=https://github.com/raboof/nethogs
+  DEPENDS:=+libncursesw +libpcap +libstdcpp
 endef
 
 define Package/nethogs/description
