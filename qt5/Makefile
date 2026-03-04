@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2025 Entware
-#
+# Copyright (C) 2017-2026 Entware
+
 # ported to Entware from
 # https://github.com/KryptonLee/qBittorrent-openwrt-package and
 # https://github.com/pawelkn/qt5-openwrt-package
@@ -9,15 +9,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5
-PKG_VERSION:=5.15.16
+PKG_VERSION:=5.15.18
 PKG_RELEASE:=1
 
 PKG_VERSION_MAJOR:=$(word 1,$(subst ., ,$(PKG_VERSION))).$(word 2,$(subst ., ,$(PKG_VERSION)))
 
 PKG_SOURCE:=qt-everywhere-opensource-src-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=https://ftp.fau.de/qtproject/archive/qt/$(PKG_VERSION_MAJOR)/$(PKG_VERSION)/single \
+PKG_SOURCE_URL:= \
+		https://ftp.fau.de/qtproject/archive/qt/$(PKG_VERSION_MAJOR)/$(PKG_VERSION)/single \
 		http://download.qt-project.org/archive/qt/$(PKG_VERSION_MAJOR)/$(PKG_VERSION)/single
-PKG_HASH:=efa99827027782974356aceff8a52bd3d2a8a93a54dd0db4cca41b5e35f1041c
+PKG_HASH:=cea1fbabf02455f3f0e8eaa839f5d6f45cdb56b62c8a83af5c1d00ac05f912ea
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/qt-everywhere-src-$(PKG_VERSION)
 
@@ -28,36 +29,36 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/qt5/Default
-	SECTION:=libs
-	CATEGORY:=Libraries
-	SUBMENU:=Qt5
-	TITLE:=Qt5
-	URL:=http://qt-project.org
-	DEPENDS:=+libstdcpp
+  SECTION:=libs
+  CATEGORY:=Libraries
+  SUBMENU:=Qt5
+  TITLE:=Qt5
+  URL:=http://qt-project.org
+  DEPENDS:=+libstdcpp
 endef
 
 define Package/qt5-core
-	$(call Package/qt5/Default)
-	TITLE+=Core module
-	DEPENDS+=+libatomic $(INTL_DEPENDS)
+  $(call Package/qt5/Default)
+  TITLE+=Core module
+  DEPENDS+=+libatomic $(INTL_DEPENDS)
 endef
 
 define Package/qt5-network
-	$(call Package/qt5/Default)
-	TITLE+=Network module
-	DEPENDS+=+libopenssl +qt5-core
+  $(call Package/qt5/Default)
+  TITLE+=Network module
+  DEPENDS+=+libopenssl +qt5-core
 endef
 
 define Package/qt5-sql
-	$(call Package/qt5/Default)
-	TITLE+=Sql module
-	DEPENDS+=+qt5-core
+  $(call Package/qt5/Default)
+  TITLE+=Sql module
+  DEPENDS+=+qt5-core
 endef
 
 define Package/qt5-xml
-	$(call Package/qt5/Default)
-	TITLE+=Xml module
-	DEPENDS+=+qt5-core
+  $(call Package/qt5/Default)
+  TITLE+=Xml module
+  DEPENDS+=+qt5-core
 endef
 
 # getrandom since Linux 3.17 & getentropy glibc 2.25
