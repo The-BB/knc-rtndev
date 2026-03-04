@@ -6,18 +6,17 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=castget
 PKG_VERSION:=2.0.1
+# libxml2
 PKG_RELEASE:=3
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=rel_$(subst .,_,$(PKG_VERSION))
-PKG_SOURCE_URL:=https://github.com/mlj/castget
-PKG_MIRROR_HASH:=ea72263c0705d1367743444727e34d9fae06abb6732b01c9ba4fd3673fdf486b
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_URL:=@SAVANNAH/castget
+PKG_HASH:=438b5f7ec7e31a45ed3756630fe447f42015acda53ec09202f48628726b5e875
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-or-later LGPL-2.1-or-later
 PKG_LICENSE_FILES:=COPYING COPYING.LIB
-PKG_MAINTAINER:=Entware team, https://entware.net
 
-PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -29,7 +28,7 @@ define Package/castget
   SUBMENU:=File Transfer
   TITLE:=a command-line podcast downloader
   URL:=https://castget.johndal.com/
-  DEPENDS:=+glib2 +id3lib +libcurl +libxml2 +libstdcpp $(ICONV_DEPENDS) $(INTL_DEPENDS)
+  DEPENDS:=+glib2 +id3lib +libcurl +libstdcpp +libxml2 $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/castget/description
