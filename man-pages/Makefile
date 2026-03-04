@@ -15,12 +15,11 @@ PKG_HASH:=3ae3f8ad97487d2c1b14258231d97d03b4e569b915377f6dd4f6be7141c57ee0
 include $(INCLUDE_DIR)/package.mk
 
 define Package/man-pages
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=Linux man-pages
-	DEPENDS:=+man-db
-	URL:=http://www.kernel.org/pub/linux/docs/man-pages
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=Linux man-pages
+  URL:=http://www.kernel.org/pub/linux/docs/man-pages
+  DEPENDS:=+man-db
 endef
 
 define Package/man-pages/description
