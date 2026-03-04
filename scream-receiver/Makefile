@@ -1,40 +1,40 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2020-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=scream-receiver
 PKG_VERSION:=4.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=aa11ca9127c52dbd84879547ce6609b4ba02522a
+PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/duncanthrax/scream
 PKG_MIRROR_HASH:=d0c8d5ca30e393329290f9706e9b6f8532b88ad7cdfcb74f1c7197184517afea
 
-CMAKE_SOURCE_SUBDIR:=Receivers/unix
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=MS-PL
+PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/scream-receiver
-	SECTION:=sound
-	CATEGORY:=Sound
-	DEPENDS:=+pulseaudio-daemon +libpcap
-	TITLE:=Scream audio receiver
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=sound
+  CATEGORY:=Sound
+  TITLE:=Scream audio receiver
+  URL:=https://github.com/duncanthrax/scream
+  DEPENDS:=+libpcap +pulseaudio-daemon
 endef
 
 define Package/scream-receiver/description
  scream is a Scream audio receiver using Pulseaudio,
  ALSA or stdout as audio output.
 endef
+
+CMAKE_SOURCE_SUBDIR:=Receivers/unix
 
 TARGET_LDFLAGS += \
 	-Wl,-rpath-link=$(STAGING_DIR)/opt/lib/pulseaudio
