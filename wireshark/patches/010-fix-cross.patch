@@ -1,0 +1,30 @@
+--- a/cmake/modules/UseLemon.cmake
++++ b/cmake/modules/UseLemon.cmake
+@@ -29,14 +29,14 @@ else()
+ 				# These files are generated as side-effect
+ 				${_out}.h
+ 				${_out}.out
+-			COMMAND $<TARGET_FILE:lemon>
++			COMMAND ${PROJECT_SOURCE_DIR}/Bin-host/lemon
+ 				-T${CMAKE_SOURCE_DIR}/tools/lemon/lempar.c
+ 				-d.
+ 				--
+ 				${_in}
+ 			DEPENDS
+ 				${_in}
+-				lemon
++				${PROJECT_SOURCE_DIR}/Bin-host/lemon
+ 				${CMAKE_SOURCE_DIR}/tools/lemon/lempar.c
+ 		)
+ 	endmacro()
+--- a/tools/lemon/CMakeLists.txt
++++ b/tools/lemon/CMakeLists.txt
+@@ -7,6 +7,8 @@
+ # SPDX-License-Identifier: GPL-2.0-or-later
+ #
+ 
++cmake_minimum_required(VERSION 3.13)
++
+ add_executable(lemon lemon.c)
+ 
+ if(DEFINED LEMON_C_COMPILER)
