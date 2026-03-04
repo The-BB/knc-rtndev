@@ -9,10 +9,10 @@ PKG_REAL_VERSION:=2.6
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_DATE:=2024-03-01
-PKG_SOURCE_VERSION:=6f6bb1353fc84f4cc37138baa99f586750028a01
+PKG_SOURCE_DATE:=2025-11-14
+PKG_SOURCE_VERSION:=138fdb258d9fc26f1843fd1b891180416c9dc575
 PKG_SOURCE_URL:=https://git.ffmpeg.org/rtmpdump
-PKG_MIRROR_HASH:=2ee2a3f494a77fc1ab6bd7d27e2fada01f8aa7833bd8ecaa173b53e972fb0eeb
+PKG_MIRROR_HASH:=0bd10db5848e6863f02168aa20cfd842c5af3cee127791506aff5ecfa2039da7
 
 PKG_VERSION:=$(PKG_REAL_VERSION)_git$(subst -,,$(PKG_SOURCE_DATE))~$(call version_abbrev,$(PKG_SOURCE_VERSION))
 
@@ -25,23 +25,23 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/rtmpdump/Default
-	TITLE:=a toolkit for RTMP streams
-	URL:=https://rtmpdump.mplayerhq.hu/
+  TITLE:=a toolkit for RTMP streams
+  URL:=https://rtmpdump.mplayerhq.hu/
 endef
 
 define Package/librtmp
-	$(call Package/rtmpdump/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE+= (library)
-	DEPENDS:=+libgnutls +zlib
+  $(call Package/rtmpdump/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE+= (library)
+  DEPENDS:=+libgnutls +zlib
 endef
 
 define Package/rtmpdump
-	$(call Package/rtmpdump/Default)
-	SECTION:=net
-	CATEGORY:=Network
-	DEPENDS:=+librtmp
+  $(call Package/rtmpdump/Default)
+  SECTION:=net
+  CATEGORY:=Network
+  DEPENDS:=+librtmp
 endef
 
 define Package/librtmp/description
