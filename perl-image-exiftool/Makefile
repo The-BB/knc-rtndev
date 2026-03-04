@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2015-2025 Entware
+# Copyright (C) 2015-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=perl-image-exiftool
-PKG_VERSION:=13.29
+PKG_VERSION:=13.50
 PKG_RELEASE:=1
 
 PKG_SOURCE_URL:=https://exiftool.org
 PKG_SOURCE:=Image-ExifTool-$(PKG_VERSION).tar.gz
-PKG_HASH:=38561b5198b3930b0f2cba724527b6180f773c70215e9617d2d1bbc03dc08b96
+PKG_HASH:=27e2d66eb21568cc0d59520f89afcaaa50735e1ad9fa4b36d0a4ccf916c70d31
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=Artistic-1.0-Perl GPL-1.0-or-later
@@ -21,12 +21,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/perl/perlmod.mk
 
 define Package/perl-image-exiftool
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	TITLE:=module for image data extraction
-	URL:=https://exiftool.org/
-	DEPENDS:=+perl +perlbase-base +perlbase-encode +perlbase-essential
-	DEPENDS+=+perlbase-file +perlbase-time
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  TITLE:=module for image data extraction
+  URL:=https://exiftool.org/
+  DEPENDS:=+perl +perlbase-base +perlbase-encode +perlbase-essential
+  DEPENDS+=+perlbase-file +perlbase-time
 endef
 
 define Build/Configure
