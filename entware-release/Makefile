@@ -56,9 +56,9 @@ LIBC_VERSION=$(call qstrip,$(CONFIG_MUSL_VERSION))
 endif
 
 ifeq ($(CONFIG_USE_APK),y)
-PM="APK (Alpine Package Keeper)"
+PM=APK (Alpine Package Keeper)
 else
-PM="OPKG (Open PacKaGe Management)"
+PM=OPKG (Open PacKaGe Management)
 endif
 
 # skip steps
