@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2025 Entware
+# Copyright (C) 2017-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -11,7 +11,7 @@ PKG_RELEASE:=2
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REAL_VERSION)
 PKG_SOURCE_URL:=https://github.com/cfpp2p/transmission
-PKG_MIRROR_HASH:=60fbed786d95e4ed37b5cb2bc0d580d2eb14e76c6ebb6a9a57d14c7912665baa
+PKG_MIRROR_HASH:=773e5f9123472d83d9c6e398499483d996c724dbef95bdd38090bd62cce72e6c
 
 PKG_VERSION:=$(subst plus,.,$(subst -,.,$(PKG_REAL_VERSION)))
 
@@ -72,6 +72,10 @@ define Package/transmission-cfp-web/description
  Webinterface resources for transmission.
 endef
 
+define Package/transmission-daemon-openssl/conffiles
+/opt/etc/transmission/settings.json
+endef
+
 WEB_CLIENT_FILE:=web-client-cfp-2019-01-28.tar.zst
 define Download/web-client-cfp
   PROTO:=git
@@ -79,11 +83,7 @@ define Download/web-client-cfp
   SOURCE_VERSION:=f104a68aa2a5b76914cdebaf7ded7ba09defd23b
   URL:=https://git.code.sf.net/p/transmission-daemon-cfp/code
   SUBDIR:=web-client-cfp
-  MIRROR_HASH:=dce2cc966b4a9ed5c5204a08cb9d5aaf3b5f747926ec85134f37d8242d389279
-endef
-
-define Package/transmission-daemon-openssl/conffiles
-/opt/etc/transmission/settings.json
+  MIRROR_HASH:=85ecd202faedb36f8f0f18e81e2adc260993e4b6064ec1d156e85da64a083c92
 endef
 
 CONFIGURE_ARGS += \
