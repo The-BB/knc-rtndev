@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2012 Erinome.net
-# Copyright (C) 2013-2025 Entware
+# Copyright (C) 2013-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cadaver
-PKG_VERSION:=0.26
+PKG_VERSION:=0.28
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://notroj.github.io/cadaver
-PKG_HASH:=9236e43cdf3505d9ef06185fda43252840105c0c02d9370b6e1077d866357b55
+PKG_HASH:=33e3a54bd54b1eb325b48316a7cacc24047c533ef88e6ef98b88dfbb60e12734
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-only
@@ -23,14 +23,14 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/cadaver
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Filesystem
-	TITLE:=Command-line WebDAV client
-	URL:=https://notroj.github.io/cadaver/
-	DEPENDS:= \
-		+libexpat +libncurses +libneon +libopenssl +libreadline +zlib \
-		$(ICONV_DEPENDS) $(INTL_DEPENDS)
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=Command-line WebDAV client
+  URL:=https://notroj.github.io/cadaver/
+  DEPENDS:= \
+	+libexpat +libncurses +libneon +libopenssl +libreadline +zlib \
+	$(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/cadaver/description
