@@ -1,0 +1,111 @@
+--- a/src/vkbd/uinput.c
++++ b/src/vkbd/uinput.c
+@@ -13,12 +13,19 @@
+ #include <time.h>
+ #include <errno.h>
+ 
++#ifndef LINUX_VERSION_CODE
++#include <linux/version.h>
++#endif
++
+ #ifdef __FreeBSD__
+ 	#include <dev/evdev/uinput.h>
+ 	#include <dev/evdev/input-event-codes.h>
+ #else
+ 	#include <linux/uinput.h>
+-	#include <linux/input.h>
++/* <linux/input-event-codes.h> since Linux 4.4-rc1 */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,4,0)
++	#include <linux/input-event-codes.h>
++#endif /* <linux/input-event-codes.h> since Linux 4.4-rc1 */
+ #endif
+ 
+ #define REPEAT_INTERVAL 40
+@@ -180,7 +187,10 @@ static void write_key_event(const struct
+ 		case KEYD_MOUSE_BACK:	 ev.code = BTN_BACK; break;
+ 		case KEYD_MOUSE_FORWARD: ev.code = BTN_FORWARD; break;
+ 		case KEYD_ZOOM:		 ev.code = KEY_ZOOM; is_btn = 0; break;
++/* KEY_VOICECOMMAND since Linux 3.12.45 */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,45)
+ 		case KEYD_VOICECOMMAND: ev.code = KEY_VOICECOMMAND; is_btn = 0; break;
++#endif /* KEY_VOICECOMMAND since Linux 3.12.45 */
+ 		default:
+ 			ev.code = code;
+ 			is_btn = 0;
+@@ -210,8 +220,8 @@ static void write_key_event(const struct
+ 
+ 	ev.value = state;
+ 
+-	ev.input_event_sec = 0;
+-	ev.input_event_usec = 0;
++	ev.time.tv_sec = 0;
++	ev.time.tv_usec = 0;
+ 
+ 	xwrite(fd, &ev, sizeof(ev));
+ 
+@@ -245,8 +255,8 @@ void vkbd_mouse_move(const struct vkbd *
+ 		ev.code = REL_X;
+ 		ev.value = x;
+ 
+-		ev.input_event_sec = 0;
+-		ev.input_event_usec = 0;
++		ev.time.tv_sec = 0;
++		ev.time.tv_usec = 0;
+ 
+ 		xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 	}
+@@ -256,8 +266,8 @@ void vkbd_mouse_move(const struct vkbd *
+ 		ev.code = REL_Y;
+ 		ev.value = y;
+ 
+-		ev.input_event_sec = 0;
+-		ev.input_event_usec = 0;
++		ev.time.tv_sec = 0;
++		ev.time.tv_usec = 0;
+ 
+ 		xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 	}
+@@ -277,8 +287,8 @@ void vkbd_mouse_scroll(const struct vkbd
+ 	ev.code = REL_WHEEL;
+ 	ev.value = y;
+ 
+-	ev.input_event_sec = 0;
+-	ev.input_event_usec = 0;
++	ev.time.tv_sec = 0;
++	ev.time.tv_usec = 0;
+ 
+ 	xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 
+@@ -286,8 +296,8 @@ void vkbd_mouse_scroll(const struct vkbd
+ 	ev.code = REL_HWHEEL;
+ 	ev.value = x;
+ 
+-	ev.input_event_sec = 0;
+-	ev.input_event_usec = 0;
++	ev.time.tv_sec = 0;
++	ev.time.tv_usec = 0;
+ 
+ 	xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 
+@@ -307,8 +317,8 @@ void vkbd_mouse_move_abs(const struct vk
+ 		ev.code = ABS_X;
+ 		ev.value = x;
+ 
+-		ev.input_event_sec = 0;
+-		ev.input_event_usec = 0;
++		ev.time.tv_sec = 0;
++		ev.time.tv_usec = 0;
+ 
+ 		xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 	}
+@@ -318,8 +328,8 @@ void vkbd_mouse_move_abs(const struct vk
+ 		ev.code = ABS_Y;
+ 		ev.value = y;
+ 
+-		ev.input_event_sec = 0;
+-		ev.input_event_usec = 0;
++		ev.time.tv_sec = 0;
++		ev.time.tv_usec = 0;
+ 
+ 		xwrite(vkbd->pfd, &ev, sizeof(ev));
+ 	}
