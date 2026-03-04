@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
+
+# 6.0.8 can't find exe_wrapper
 
 include $(TOPDIR)/rules.mk
 
@@ -23,11 +25,11 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
 define Package/radare2
-	SECTION:=devel
-	CATEGORY:=Development
-	TITLE:=reverse engineering framework
-	URL:=https://www.radare.org/
-	DEPENDS:=+(mips||mipsel):libatomic +libuv
+  SECTION:=devel
+  CATEGORY:=Development
+  TITLE:=reverse engineering framework
+  URL:=https://www.radare.org/
+  DEPENDS:=+(mips||mipsel):libatomic +libuv
 endef
 
 define Package/radare2/description
