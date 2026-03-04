@@ -8,7 +8,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=telegram-cli
 PKG_REAL_VERSION:=1.3.1
-PKG_RELEASE:=3
+# libconfig bumped
+PKG_RELEASE:=4
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2016-03-23
@@ -31,14 +32,14 @@ include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
 define Package/telegram-cli
-	SUBMENU:=Instant Messaging
-	SECTION:=net
-	CATEGORY:=Network
-	TITLE:=CLI for Telegram
-	URL:=$(PKG_SOURCE_URL)
-	DEPENDS:= \
-		+jansson +libconfig +libevent2 +liblua +libncursesw \
-		+libopenssl +libreadline
+  SUBMENU:=Instant Messaging
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=CLI for Telegram
+  URL:=$(PKG_SOURCE_URL)
+  DEPENDS:= \
+	+jansson +libconfig +libevent2 +liblua +libncursesw \
+	+libopenssl +libreadline
 endef
 
 define Package/telegram-cli/description
