@@ -1,32 +1,32 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=chromaprint
-PKG_VERSION:=1.5.1
+PKG_VERSION:=1.6.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=5c3be6803856f25b11d1d704bac56e733b4fc997
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/acoustid/chromaprint
-PKG_MIRROR_HASH:=c8dc9d7e5cf9f1b089b2a00c5368c16ead1e3a8123f23973f61843ed32bc9cf6
+PKG_MIRROR_HASH:=9609cd52a01dd281f57211c791bb336f1926d831c4ed83aade27d96b242c4899
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=LGPL-2.1-only MIT
+PKG_LICENSE_FILES:=LICENSE.md
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/chromaprint
-	SECTION:=libs
-	CATEGORY:=Libraries
-	SUBMENU:=Sound
-	DEPENDS:=+libffmpeg-full +libstdcpp
-	TITLE:=audio fingerprint library
-	URL:=https://github.com/acoustid/chromaprint
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=libs
+  CATEGORY:=Libraries
+  SUBMENU:=Sound
+  TITLE:=audio fingerprint library
+  URL:=https://github.com/acoustid/chromaprint
+  DEPENDS:=+libffmpeg-full +libstdcpp
 endef
 
 define Package/chromaprint/description
@@ -40,10 +40,6 @@ CMAKE_OPTIONS += \
 	-DBUILD_TESTS=OFF
 
 TARGET_CXXFLAGS += -fpermissive
-
-define Build/InstallDev
-	true
-endef
 
 define Package/chromaprint/install
 	$(INSTALL_DIR) $(1)/opt/bin
