@@ -1,16 +1,20 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2025 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xpdf
 PKG_VERSION:=4.05
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://dl.xpdfreader.com
 PKG_HASH:=92707ed5acb6584fbd73f34091fda91365654ded1f31ba72f0970022cf2a5cea
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-only GPL-3.0-only
+PKG_LICENSE_FILES:=COPYING COPYING3
 
 PKG_BUILD_FLAGS:=no-mips16
 
@@ -18,12 +22,11 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/xpdf
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=+libfreetype +libstdcpp +libpng
-	TITLE:=PDF manipulations tool
-	URL:=http://www.xpdfreader.com/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=PDF manipulations tool
+  URL:=http://www.xpdfreader.com/
+  DEPENDS:=+libfreetype +libpng +libstdcpp
 endef
 
 define Package/xpdf/description
@@ -36,8 +39,7 @@ CMAKE_OPTIONS += \
 
 define Package/xpdf/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) \
-	    $(PKG_INSTALL_DIR)/opt/bin/pdf* $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/pdf* $(1)/opt/bin
 endef
 
 $(eval $(call BuildPackage,xpdf))
