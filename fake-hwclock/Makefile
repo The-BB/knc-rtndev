@@ -12,6 +12,7 @@ PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@DEBIAN/pool/main/f/$(PKG_NAME)
 PKG_HASH:=9f506a6e982e1943263a9c824972320d89f84dc4e52f6ae3fb383b9e7e1eb11b
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=COPYING
 
@@ -20,11 +21,10 @@ include $(INCLUDE_DIR)/package.mk
 PKG_UNPACK:=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf $(DL_DIR)/$(PKG_SOURCE)
 
 define Package/fake-hwclock
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=loads/saves current kernel clock from/to file
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=loads/saves current kernel clock from/to file
+  URL:=$(PKG_SOURCE_URL)
 endef
 
 define Package/fake-hwclock/description
