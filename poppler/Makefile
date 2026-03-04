@@ -1,16 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2013 Francisco Borges
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 # Makefile taken from http://github.com/FranciscoBorges/openwrt-printing-packages
 # 21.12.0+ requires GCC 9.4.0
+# XXX boost bumped
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=poppler
 PKG_VERSION:=25.04.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://poppler.freedesktop.org
