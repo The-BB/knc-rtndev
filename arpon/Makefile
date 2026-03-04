@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=arpon
 PKG_VERSION:=3.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=ArpON-$(PKG_VERSION)-ng.tar.gz
 PKG_SOURCE_URL:=@SF/arpon
@@ -16,16 +16,19 @@ PKG_HASH:=ea55d1641b4573b19103ca596368e418aecd2a1409adbdce3a9f76dc8ebad590
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/ArpON-$(PKG_VERSION)-ng
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=BSD-2-Clause
+PKG_LICENSE_FILES:=LICENCE
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/arpon
-	SECTION:=net
-	CATEGORY:=Network
-	DEPENDS:=+libnet-1.2.x +libdnet
-	TITLE:=ARP handler inspector
-	URL:=http://arpon.sourceforge.net/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=ARP handler inspector
+  URL:=http://arpon.sourceforge.net/
+  DEPENDS:=+libnet-1.2.x +libdnet
 endef
 
 define Package/arpon/description
