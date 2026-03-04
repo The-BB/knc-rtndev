@@ -1,30 +1,27 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=fzy
-PKG_VERSION:=1.0
+PKG_VERSION:=1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=f5d41e726cd997ba038815e218c48017228a8f0e
+PKG_SOURCE_VERSION:=d811eaf9d73593f8293a73f98a17b36f016873e6
 PKG_SOURCE_URL:=https://github.com/jhawthorn/fzy
-PKG_MIRROR_HASH:=8cccf212be5683318eda499d1c5b4ee6c5f04238dc144acc45d5b3b6c2fd1d23
+PKG_MIRROR_HASH:=7cad43f5d60e94d126da30e8ea309172fd01349a7b71fb14d59d24abdbaf251b
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/fzy
-	SECTION:=utils
-	CATEGORY:=Utilities
-	SUBMENU:=Filesystem
-	TITLE:=fuzzy finder for the terminal
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=utils
+  CATEGORY:=Utilities
+  SUBMENU:=Filesystem
+  TITLE:=fuzzy finder for the terminal
+  URL:=$(PKG_SOURCE_URL)
+  MAINTAINER:=Entware team, https://entware.net
 endef
 
 define Package/fzy/description
