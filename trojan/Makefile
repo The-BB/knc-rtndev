@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020-2024 Entware
+# Copyright (C) 2020-2025 Entware
 
 # XXX boost bumped
 
@@ -8,23 +8,26 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=trojan
 PKG_VERSION:=1.16.0
-PKG_RELEASE:=6
+PKG_RELEASE:=9
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=8606b7110fe79f8ab02d60c897f87ffb0a9b23f0
 PKG_SOURCE_URL:=https://github.com/trojan-gfw/trojan
 PKG_MIRROR_HASH:=8dc47632a28a87318bc62f97437dc7152135cfc836823c6c0ff218cd8b845ec9
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-3.0-or-later
+PKG_LICENSE_FILES:=LICENSE
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/trojan
-	SECTION:=net
-	CATEGORY:=Network
-	DEPENDS:=+boost-system +boost-program_options +libopenssl
-	TITLE:=GFW bypass tool
-	URL:=https://trojan-gfw.github.io/trojan/
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=GFW bypass tool
+  URL:=https://trojan-gfw.github.io/trojan/
+  DEPENDS:=+boost-program_options +libopenssl +libstdcpp
 endef
 
 define Package/trojan/description
