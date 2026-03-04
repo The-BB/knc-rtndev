@@ -2,6 +2,8 @@
 #
 # Copyright (C) 2011-2025 Entware
 
+# The newer version requires host compilation with their own deps
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libmtp
@@ -11,7 +13,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/libmtp/libmtp
-PKG_MIRROR_HASH:=80a9e54597ce734bc447fb177d0d5c89fcb4f3a80c2d489242ea791966fbfaa3
+PKG_MIRROR_HASH:=1fa2650f2e8f2b8dab573a86116188c717abd32838ce1e7a691c191447e1ed81
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=LGPL-2.1-only
@@ -24,24 +26,24 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/libmtp/Default
-	SUBMENU:=Filesystem
-	URL:=https://libmtp.sourceforge.net/
+  SUBMENU:=Filesystem
+  URL:=https://libmtp.sourceforge.net/
 endef
 
 define Package/libmtp
-	$(call Package/libmtp/Default)
-	SECTION:=libs
-	CATEGORY:=Libraries
-	TITLE:=a library to access MTP devices
-	DEPENDS:=+libgcrypt +libusb-1.0 $(ICONV_DEPENDS)
+  $(call Package/libmtp/Default)
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE:=a library to access MTP devices
+  DEPENDS:=+libgcrypt +libusb-1.0 $(ICONV_DEPENDS)
 endef
 
 define Package/libmtp-utils
-	$(call Package/libmtp/Default)
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=libmtp utilities
-	DEPENDS:=+libmtp
+  $(call Package/libmtp/Default)
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=libmtp utilities
+  DEPENDS:=+libmtp
 endef
 
 define Package/libmtp/description
