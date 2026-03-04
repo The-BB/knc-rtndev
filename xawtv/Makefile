@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2024 Entware
+# Copyright (C) 2011-2026 Entware
 
 # This is the last version with V4L1 API support
 
@@ -11,8 +11,12 @@ PKG_VERSION:=3.105
 PKG_RELEASE:=1
 
 PKG_SOURCE:=xawtv-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://linuxtv.org/downloads/xawtv
+PKG_SOURCE_URL:=https://linuxtv.org/downloads/xawtv
 PKG_HASH:=2bd899d8366cd74a59e8e1bc002a41004ab40fbba98184e40c5f42e61b98640f
+
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-only
+PKG_LICENSE_FILES:=COPYING
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -20,12 +24,11 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/xawtv
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	DEPENDS:=+alsa-lib +libncursesw +libv4l +libjpeg
-	TITLE:=a small suite of V4L apps
-	URL:=https://www.kraxel.org/blog/linux/xawtv
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  TITLE:=a small suite of V4L apps
+  URL:=https://www.kraxel.org/blog/linux/xawtv
+  DEPENDS:=+alsa-lib +libjpeg +libncursesw +libv4l
 endef
 
 define Package/xawtv/description
