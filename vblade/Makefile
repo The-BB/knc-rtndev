@@ -2,8 +2,6 @@
 #
 # Copyright (C) 2011-2024 Entware
 
-# Abandoned in 2020
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vblade
@@ -15,15 +13,18 @@ PKG_SOURCE_VERSION:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/OpenAoE/vblade
 PKG_MIRROR_HASH:=8e6558ee06073a1f5c82274f34a10d321b044ef9b690703af5ab97170066d350
 
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING
+PKG_MAINTAINER:=Entware team, https://entware.net
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/vblade
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Filesystem
-	TITLE:=AoE storage target
-	URL:=$(PKG_SOURCE_URL)
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Filesystem
+  TITLE:=AoE storage target
+  URL:=$(PKG_SOURCE_URL)
 endef
 
 define Package/vblade/description
