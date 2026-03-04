@@ -12,9 +12,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/sshguard
 PKG_HASH:=997a1e0ec2b2165b4757c42f8948162eb534183946af52efc406885d97cb89fc
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=ISC
 PKG_LICENSE_FILES:=COPYING
-PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
