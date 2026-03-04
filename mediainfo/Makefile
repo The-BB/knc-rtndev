@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mediainfo
-PKG_VERSION:=25.04
+PKG_VERSION:=25.10
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/MediaArea/MediaInfo
-PKG_MIRROR_HASH:=6a122c3777ebd15f7b909a5eabb4469da05bfca2203939077841a0f82160fb23
+PKG_MIRROR_HASH:=fdcb401b698c2ca781ecc91752ada1c822a1db995a6ce55930dd185fa26a0b10
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-2-Clause
@@ -22,11 +22,11 @@ PKG_FIXUP:=autoreconf
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mediainfo
-	SECTION:=multimedia
-	CATEGORY:=Multimedia
-	TITLE:=command-line utility
-	URL:=https://mediaarea.net/MediaInfo
-	DEPENDS:=+libmediainfo
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
+  TITLE:=command-line utility
+  URL:=https://mediaarea.net/MediaInfo
+  DEPENDS:=+libmediainfo
 endef
 
 define Package/mediainfo/description
