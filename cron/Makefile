@@ -1,9 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2026 Entware
+
 # Not updated since 2004
 
 include $(TOPDIR)/rules.mk
@@ -16,19 +14,22 @@ PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).shar
 PKG_SOURCE_URL:=https://ftp.isc.org/isc/cron
 PKG_HASH:=c445837756fb988f2c95db8dc55d7937d14bca0cdfa292de81322ca2556ec39a
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=ISC
+PKG_LICENSE_FILES:=README
+
 include $(INCLUDE_DIR)/package.mk
 
 PKG_UNPACK=cd $(PKG_BUILD_DIR) && cat $(DL_DIR)/$(PKG_SOURCE) | sh -x
 
 define Package/cron
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=Vixie cron
-	URL:=https://ftp.isc.org/isc/cron
-	MAINTAINER:=Entware team, https://entware.net
-	ALTERNATIVES:= \
-		200:/opt/bin/crontab:/opt/bin/crontab-vixie \
-		200:/opt/bin/run-parts:/opt/bin/run-parts-vixie
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=Vixie cron
+  URL:=https://ftp.isc.org/isc/cron
+  ALTERNATIVES:= \
+	200:/opt/bin/crontab:/opt/bin/crontab-vixie \
+	200:/opt/bin/run-parts:/opt/bin/run-parts-vixie
 endef
 
 define Package/cron/description
