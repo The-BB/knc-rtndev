@@ -1,10 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2017 Jian Chang <aa65535@live.com>
-# Copyright (C) 2011-2021 Entware
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2011-2026 Entware
+
 # Original Makefile taken from https://github.com/aa65535/openwrt-simple-obfs
 # Deprecated. Followed by v2ray-plugin.
 
@@ -16,9 +14,10 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=a9c43588e4cb038e6ac02f050e4cab81f8228dff
-PKG_SOURCE_URL:=https://github.com/shadowsocks/simple-obfs.git
+PKG_SOURCE_URL:=https://github.com/shadowsocks/simple-obfs
 PKG_MIRROR_HASH:=d7d28b2cc98e82b15e1c1b4f546a7d8124c853ab858cd6248ebbf1b1e765ab88
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
 
@@ -30,13 +29,12 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/simple-obfs/Default
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
-	TITLE:=Simple-obfs
-	URL:=https://github.com/shadowsocks/simple-obfs
-	DEPENDS:=+libev
-	MAINTAINER:=Entware team, https://entware.net
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Web Servers/Proxies
+  TITLE:=Simple-obfs
+  URL:=https://github.com/shadowsocks/simple-obfs
+  DEPENDS:=+libev
 endef
 
 Package/simple-obfs = $(call Package/simple-obfs/Default)
