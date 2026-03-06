@@ -1,23 +1,23 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2017-2025 Entware
+# Copyright (C) 2017-2026 Entware
 
 # ported to Entware from https://github.com/KryptonLee/qBittorrent-openwrt-package
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qbittorrent
-PKG_VERSION:=5.1.0
+PKG_VERSION:=5.1.4
 PKG_RELEASE=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=release-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/qbittorrent/qbittorrent
-PKG_MIRROR_HASH:=6479055d5cb50db5e2f04de454bf00e1238efff7e4b169a9bf082e0a5510a63e
+PKG_MIRROR_HASH:=588ceb3a581916b1e24443db8d7ec7a8561466fb7643a03908074da028f63aca
 
 PKG_MAINTAINER:=Entware team, https://entware.net
-PKG_LICENSE:=GPL-2.0-or-later
-PKG_LICENSE_FILES:=COPYING
+PKG_LICENSE:=GPL-2.0-or-later GPL-3.0-or-later
+PKG_LICENSE_FILES:=COPYING COPYING.GPLv2 COPYING.GPLv3
 
 PKG_BUILD_DEPENDS:=qt6base qt6tools/host
 PKG_BUILD_FLAGS:=no-mips16
@@ -43,8 +43,9 @@ define Package/qbittorrent/description
  well as many features.
 endef
 
+TARGET_CPPFLAGS:=$(filter-out -I%fortify,$(TARGET_CPPFLAGS))
 TARGET_CXXFLAGS += -pthread
-TARGET_LDFLAGS += -latomic -lpthread
+TARGET_LDFLAGS += -latomic -pthread
 
 CMAKE_OPTIONS += \
 	-DGUI=OFF \
