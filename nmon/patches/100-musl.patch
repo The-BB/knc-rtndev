@@ -4,8 +4,8 @@
 
 ---
 
---- a/lmon16q.c
-+++ b/lmon16q.c
+--- a/lmon16s.c
++++ b/lmon16s.c
 @@ -61,7 +61,11 @@ static char *SccsId = "nmon " VERSION;
  #include <fcntl.h>
  #include <math.h>

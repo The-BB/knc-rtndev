@@ -7,8 +7,8 @@ Subject: [PATCH] Add glibc compatibility to nmon
 musl is missing some compatibility with glibc which this patch adds to the nmon
 source. The fstab.h header was not used and fails to build if it's included.
 
---- a/lmon16q.c
-+++ b/lmon16q.c
+--- a/lmon16s.c
++++ b/lmon16s.c
 @@ -42,6 +42,9 @@ PRE_KERNEL_2_6_18 1 kernel levels before
  	pi_delayacct_blkio_ticks 
  */
