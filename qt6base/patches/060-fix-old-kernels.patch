@@ -1,6 +1,6 @@
 --- a/src/corelib/io/qstorageinfo_linux.cpp
 +++ b/src/corelib/io/qstorageinfo_linux.cpp
-@@ -32,6 +32,11 @@
+@@ -33,6 +33,11 @@
  #  define ST_RDONLY             0x0001  /* mount read-only */
  #endif
  
@@ -12,7 +12,7 @@
  #if defined(Q_OS_ANDROID)
  // statx() is disabled on Android because quite a few systems
  // come with sandboxes that kill applications that make system calls outside a
-@@ -314,7 +319,7 @@ static inline quint64 mountIdForPath(int
+@@ -315,7 +320,7 @@ static inline quint64 mountIdForPath(int
  {
      if (fd < 0)
          return 0;
@@ -23,7 +23,7 @@
      int r = statx(fd, "", AT_EMPTY_PATH | AT_NO_AUTOMOUNT, STATX_MNT_ID, &st);
 --- a/src/network/configure.cmake
 +++ b/src/network/configure.cmake
-@@ -67,6 +67,11 @@ qt_config_compile_test(linux_netlink
+@@ -72,6 +72,11 @@ qt_config_compile_test(linux_netlink
  #include <linux/rtnetlink.h>
  #include <sys/socket.h>
  
@@ -35,7 +35,7 @@
  int main(void)
  {
      /* BEGIN TEST: */
-@@ -78,7 +83,11 @@ ci.ifa_prefered = ci.ifa_valid = 0;
+@@ -83,7 +88,11 @@ ci.ifa_prefered = ci.ifa_valid = 0;
  (void)RTM_NEWLINK; (void)RTM_NEWADDR;
  (void)IFLA_ADDRESS; (void)IFLA_IFNAME;
  (void)IFA_ADDRESS; (void)IFA_LABEL; (void)IFA_CACHEINFO;
@@ -49,7 +49,7 @@
  }
 --- a/src/network/kernel/qnetworkinterface_linux.cpp
 +++ b/src/network/kernel/qnetworkinterface_linux.cpp
-@@ -21,11 +21,18 @@
+@@ -22,11 +22,18 @@
  #include <linux/wireless.h>
  #include <sys/socket.h>
  
@@ -68,7 +68,7 @@
  
  QT_BEGIN_NAMESPACE
  
-@@ -72,8 +79,10 @@ static QNetworkInterface::InterfaceType
+@@ -73,8 +80,10 @@ static QNetworkInterface::InterfaceType
      case ARPHRD_PHONET_PIPE:
          return QNetworkInterface::Phonet;
  
@@ -79,7 +79,7 @@
  
      case ARPHRD_TUNNEL:
      case ARPHRD_TUNNEL6:
-@@ -358,10 +367,12 @@ static void getAddresses(int sock, char
+@@ -359,10 +368,12 @@ static void getAddresses(int sock, char
                  }
                  break;
  

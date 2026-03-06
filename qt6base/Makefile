@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2023-2025 Entware
+# Copyright (C) 2023-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qtbase
-PKG_VERSION:=6.9.0
+PKG_VERSION:=6.10.2
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/qt/qtbase
-PKG_MIRROR_HASH:=59036ab0c066385e3675595195316103d06cbe724cbdb175c32e13af9a91aa9e
+PKG_MIRROR_HASH:=4095ce0cea22eb0f14b033d8975e077f1b509f66098d84b40d6845527ed5215d
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:= \

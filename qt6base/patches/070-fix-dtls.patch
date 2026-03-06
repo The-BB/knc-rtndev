@@ -13,15 +13,15 @@
 
 --- a/src/plugins/tls/openssl/qdtls_openssl.cpp
 +++ b/src/plugins/tls/openssl/qdtls_openssl.cpp
-@@ -230,6 +230,7 @@ extern "C" int q_X509DtlsCallback(int ok
+@@ -229,6 +229,7 @@ int q_X509DtlsCallback(int ok, X509_STOR
      return 1;
  }
  
 +#if OPENSSL_VERSION_NUMBER >= 0x10001000L && !defined(OPENSSL_NO_PSK)
- extern "C" unsigned q_PSK_client_callback(SSL *ssl, const char *hint, char *identity,
-                                           unsigned max_identity_len, unsigned char *psk,
-                                           unsigned max_psk_len)
-@@ -254,6 +255,7 @@ extern "C" unsigned q_PSK_server_callbac
+ unsigned q_PSK_client_callback(SSL *ssl, const char *hint, char *identity,
+                                unsigned max_identity_len, unsigned char *psk, unsigned max_psk_len)
+ {
+@@ -252,6 +253,7 @@ unsigned q_PSK_server_callback(SSL *ssl,
      Q_ASSERT(dtls->dtlsPrivate);
      return dtls->dtlsPrivate->pskServerCallback(identity, psk, max_psk_len);
  }
@@ -29,7 +29,7 @@
  
  } // namespace dtlscallbacks
  
-@@ -662,9 +664,11 @@ bool DtlsState::initCtxAndConnection(QDt
+@@ -660,9 +662,11 @@ bool DtlsState::initCtxAndConnection(QDt
      if (dtlsBase->mode == QSslSocket::SslServerMode) {
          if (dtlsBase->dtlsConfiguration.dtlsCookieVerificationEnabled())
              q_SSL_set_options(newConnection.data(), SSL_OP_COOKIE_EXCHANGE);
