@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 #
 # This is the last version without qtcore dependency (58.0.0)
 
@@ -31,8 +31,8 @@ define Package/mkvtoolnix
   CATEGORY:=Multimedia
   TITLE:=tools for Matroska files
   URL:=http://matroska.org/
-  DEPENDS:=+boost-filesystem +libflac +libfmt +libgmp +libogg \
-	+libvorbis +qt5-core +zlib $(ICONV_DEPENDS) $(INTL_DEPENDS)
+  DEPENDS:=+boost-filesystem +libflac +libfmt +libgmp +libogg +libvorbis \
+	+libstdcpp +qt5-core +zlib $(ICONV_DEPENDS) $(INTL_DEPENDS)
 endef
 
 define Package/mkvtoolnix/description
