@@ -1,0 +1,63 @@
+.../cdrkit-1.1.11/genisoimage/sha256.h:45:54: error: expected declaration specifiers before '__THROW'
+
+   45 | extern void sha256_init_ctx (struct sha256_ctx *ctx) __THROW;
+      |                                                      ^~~~~~~
+.../cdrkit-1.1.11/genisoimage/sha256.h:52:61: error: expected '=', ',', ';', 'asm' or '__attribute__' before '__THROW'
+   52 |                                     struct sha256_ctx *ctx) __THROW;
+      |                                                             ^~~~~~~
+...
+
+---
+
+--- a/genisoimage/sha256.h
++++ b/genisoimage/sha256.h
+@@ -29,6 +29,10 @@
+ #include <stdint.h>
+ #include <stdio.h>
+ 
++/* define __THROW to avoid build issue when it's not available from the libc */
++#ifndef __THROW
++# define __THROW
++#endif
+ 
+ /* Structure to save state of computation between the single steps.  */
+ struct sha256_ctx
+--- a/genisoimage/sha512.h
++++ b/genisoimage/sha512.h
+@@ -29,6 +29,10 @@
+ #include <stdint.h>
+ #include <stdio.h>
+ 
++/* define __THROW to avoid build issue when it's not available from the libc */
++#ifndef __THROW
++# define __THROW
++#endif
+ 
+ /* Structure to save state of computation between the single steps.  */
+ struct sha512_ctx
+--- a/include/waitdefs.h
++++ b/include/waitdefs.h
+@@ -48,7 +48,11 @@
+ 
+ #if	defined(HAVE_WAIT_H)
+ #	ifndef	_INCL_WAIT_H
++#	ifdef __GLIBC__
+ #	include <wait.h>
++#	else
++#	include <sys/wait.h>
++#	endif
+ #	define	_INCL_WAIT_H
+ #	endif
+ #else
+--- a/include/xconfig.h.in
++++ b/include/xconfig.h.in
+@@ -187,7 +187,9 @@
+  *	they are placed before the large file tests.
+  */
+ 
++#ifdef __GLIBC__
+ #define HAVE_RCMD 1		/* rcmd() is present in libc/libsocket */
++#endif
+ #define HAVE_SOCKET 1		/* socket() is present in libc/libsocket */
+ #define HAVE_SOCKETPAIR 1		/* socketpair() is present in libc/libsocket */
+ #define HAVE_GETSERVBYNAME 1	/* getservbyname() is present in libc/libsocket */
