@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -13,9 +13,9 @@ PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/xiph/vorbis-tools
 PKG_MIRROR_HASH:=e9d31600e575d22641ed0d0245ef02bb4e89900b06e7086a73554371a66e23f8
 
+PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-only LGPL-2.0-only
 PKG_LICENSE_FILES:=COPYING LICENCE.LGPL
-PKG_MAINTAINER:=Entware team, https://entware.net
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
