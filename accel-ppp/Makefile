@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2011-2025 Entware
+# Copyright (C) 2011-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
@@ -11,7 +11,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/accel-ppp/accel-ppp
-PKG_MIRROR_HASH:=230983b024e521197dbe9c9b468e70894d2bc7595b7ebf168eec5811bad8a23b
+PKG_MIRROR_HASH:=862c810f02caca7e6b49d9bb1f88f948788d70d8eca01cdcae25f0311747c940
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=GPL-2.0-or-later
@@ -28,7 +28,7 @@ define Package/accel-ppp
   SUBMENU:=VPN
   TITLE:=VPN server
   URL:=https://www.accel-ppp.io/
-  DEPENDS:=+libopenssl +libpcre +USE_MUSL:libucontext
+  DEPENDS:=+libopenssl +libpcre2 +USE_MUSL:libucontext
 endef
 
 define Package/accel-ppp/description
