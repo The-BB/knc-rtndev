@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2023-2025 Entware
+# Copyright (C) 2023-2026 Entware
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qttools
-PKG_VERSION:=6.9.0
+PKG_VERSION:=6.10.2
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/qt/qttools
-PKG_MIRROR_HASH:=98899051614bfd510d2d98aa926113a3f65f3dc44bf28fe948449b53f140b3b9
+PKG_MIRROR_HASH:=bca674ff197ad07192d396a6a1c8495dc1604df43631d41ae61d0f69309213a5
 
 PKG_SOURCE_SUBMODULES:=skip
 
