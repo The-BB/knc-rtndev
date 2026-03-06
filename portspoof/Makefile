@@ -13,6 +13,10 @@ PKG_SOURCE_VERSION:=a5d1a176b2a2cd35213c88615dd1ce1e6910b4d4
 PKG_SOURCE_URL:=https://github.com/drk1wi/portspoof
 PKG_MIRROR_HASH:=a63e417c592d85b537079e001f3320110d623c5c180e695aae4039868adf805f
 
+PKG_MAINTAINER:=Entware team, https://entware.net
+PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE_FILES:=COPYING LICENSE
+
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -22,7 +26,7 @@ define Package/portspoof
   SECTION:=net
   CATEGORY:=Network
   TITLE:=effective defense against port scanners
-  URL:=$(PKG_SOURCE_URL)
+  URL:=https://portspoof.io/
   DEPENDS:=+libstdcpp
 endef
 
