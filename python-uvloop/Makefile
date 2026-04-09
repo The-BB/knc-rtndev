@@ -15,7 +15,7 @@ PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=Apache-2.0 MIT
 PKG_LICENSE_FILES:=LICENSE-APACHE LICENSE-MIT
 
-PKG_BUILD_DEPENDS:=python-cython/host python-wheel/host
+PKG_BUILD_DEPENDS:=python-cython/host python-setuptools/host
 
 include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
@@ -40,7 +40,6 @@ endef
 PYTHON3_PKG_BUILD_CONFIG_SETTINGS += \
 	--build-option=build_ext \
 	--build-option=--inplace \
-	--build-option=--cython-always \
 	--build-option=--use-system-libuv
 
 define Package/python3-uvloop/postrm
