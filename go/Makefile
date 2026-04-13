@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=go
-PKG_VERSION:=1.26.1
+PKG_VERSION:=1.26.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=go$(PKG_VERSION).src.tar.gz
@@ -14,7 +14,7 @@ PKG_SOURCE_URL:= \
 		https://golang.google.cn/dl/ \
 		https://mirrors.nju.edu.cn/golang/ \
 		https://mirrors.ustc.edu.cn/golang/
-PKG_HASH:=3172293d04b209dc1144698e7ba13f0477f6ba8c5ffd0be66c20fdbc9785dfbb
+PKG_HASH:=2e91ebb6947a96e9436fb2b3926a8802efe63a6d375dffec4f82aa9dbd6fd43b
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-3-Clause
@@ -25,7 +25,7 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/golang/go_env.mk
 
-PKG_UNPACK:=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xf $(DL_DIR)/$(PKG_SOURCE)
+PKG_UNPACK += --strip-components=1 -C $(PKG_BUILD_DIR)
 
 define Package/go/Default
   SECTION:=lang
@@ -33,9 +33,6 @@ define Package/go/Default
   TITLE:=The Go Programming Language
   URL:=https://golang.org/
   PROVIDES:=go
-  ALTERNATIVES:= \
-	100:/opt/sbin/go:/opt/bin/go/bin/go \
-	100:/opt/sbin/gofmt:/opt/bin/go/bin/gofmt
 endef
 
 define Package/go
@@ -83,10 +80,13 @@ define Build/Compile
 endef
 
 define Package/go/install
-	$(INSTALL_DIR) $(1)/opt/bin/go
-	$(CP) $(PKG_BUILD_DIR)/{api,bin,lib,misc,pkg,test,doc,src} $(1)/opt/bin/go
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/opt/lib/go
+	$(CP) $(PKG_BUILD_DIR)/{api,bin,lib,misc,pkg,test,doc,src} $(1)/opt/lib/go
+	$(LN) ../lib/go/bin/go $(1)/opt/bin/go
+	$(LN) ../lib/go/bin/gofmt $(1)/opt/bin/gofmt
 	# Entware specific: fix exec path in scripts
-	$(FIND) $(1)/opt/bin/go -type f | $(XARGS) $(SED) \
+	$(FIND) $(1)/opt/lib/go -type f | $(XARGS) $(SED) \
 		's,^#!.*bash,#!/opt/bin/bash,;s,^#!.*perl,#!/opt/bin/perl,'
 endef
 
