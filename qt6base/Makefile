@@ -199,8 +199,8 @@ define Build/Configure
 			$(PKG_BUILD_DIR)/mkspecs/common/g++-base.conf
 	$(SED) 's,^QMAKE_CC\s*=.*,QMAKE_CC = $(TARGET_CC),; \
 		s,^QMAKE_CXX\s*=.*,QMAKE_CXX = $(TARGET_CXX),; \
-		s,@TARGET_CFLAGS@,$(TARGET_CFLAGS),g; \
-		s,@TARGET_CXXFLAGS@,$(TARGET_CXXFLAGS),g' \
+		s|@TARGET_CFLAGS@|$(TARGET_CFLAGS)|g; \
+		s|@TARGET_CXXFLAGS@|$(TARGET_CXXFLAGS)|g' \
 			$(PKG_BUILD_DIR)/mkspecs/devices/linux-entware-g++/qmake.conf
 	$(SED) 's|@TARGET_CXXFLAGS@|$(TARGET_CXXFLAGS)|g; \
 		s|@TARGET_LDFLAGS@|$(TARGET_LDFLAGS)|g; \
