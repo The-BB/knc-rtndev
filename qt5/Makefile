@@ -241,8 +241,8 @@ define Build/Configure
 	$(SED) 's,^QMAKE_CC\s*=.*,QMAKE_CC = $(HOSTCC_NOCACHE),; \
 		s,^QMAKE_CXX\s*=.*,QMAKE_CXX = $(HOSTCXX_NOCACHE),' \
 			$(PKG_BUILD_DIR)/qtbase/mkspecs/common/g++-base.conf
-	$(SED) 's,@TARGET_CFLAGS@,$(TARGET_CFLAGS),g; \
-		s,@TARGET_CXXFLAGS@,$(TARGET_CXXFLAGS),g' \
+	$(SED) 's|@TARGET_CFLAGS@|$(TARGET_CFLAGS)|g; \
+		s|@TARGET_CXXFLAGS@|$(TARGET_CXXFLAGS)|g' \
 			$(PKG_BUILD_DIR)/qtbase/mkspecs/devices/linux-entware-g++/qmake.conf
 	$(SED) 's,@ICONV_PREFIX@,$(ICONV_PREFIX),g; \
 		s,@INTL_PREFIX@,$(INTL_PREFIX),' \
