@@ -2,13 +2,12 @@
 #
 # Copyright (C) 2011-2025 Entware
 
-# XXX boost bumped
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=grive2
 PKG_VERSION:=0.5.3
-PKG_RELEASE:=9
+# XXX binutils (libbfd) bumped
+PKG_RELEASE:=10
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=d03c4a24ceb179d0fdb4c47e3d144d547ffcc8b6
