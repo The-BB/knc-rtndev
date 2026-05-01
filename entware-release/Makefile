@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=entware-release
-PKG_VERSION:=2026.04
+PKG_VERSION:=2026.05
 PKG_RELEASE:=1
 
 PKG_MAINTAINER:=Entware team, https://entware.net
