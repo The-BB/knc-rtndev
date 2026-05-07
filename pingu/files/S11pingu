@@ -6,11 +6,11 @@ DESC="Policy routing daemon"
 PROCS="pingu"
 PROG="/opt/sbin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   rm -f /opt/var/run/$PROCS.ctl
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-d"
 PREARGS=""
 
