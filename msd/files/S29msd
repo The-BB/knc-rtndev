@@ -8,11 +8,11 @@ PROG="/opt/bin/$PROCS"
 
 PID_FILE="/opt/var/run/$PROCS.pid"
 
-pre_cmd() {
+start_pre() {
   rm -f "PID_FILE"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-d -c /opt/etc/$PROCS.conf -p $PID_FILE"
 PREARGS=""
 
