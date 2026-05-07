@@ -6,12 +6,12 @@ DESC="Open Source Conditional Access Module service"
 PROCS="oscam"
 PROG="/opt/bin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   [ -d "/opt/var/log/$PROCS/cw" ] || \
   mkdir -pm 0750 /opt/var/log/"$PROCS"/cw
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-b"
 PREARGS=""
 
