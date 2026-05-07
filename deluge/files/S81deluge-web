@@ -9,11 +9,11 @@ PROG="/opt/bin/$PROCS"
 LIMIT="15"
 PID_FILE="/opt/var/run/$PROCS.pid"
 
-pre_cmd() {
+start_pre() {
   rm -f "$PID_FILE"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-l /opt/var/log/$PROCS.log -L error -p 888 -P $PID_FILE"
 PREARGS=""
 
