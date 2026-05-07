@@ -8,11 +8,11 @@ PROG="/opt/bin/$PROCS"
 
 LOGFILE="/opt/var/log/$PROCS.log"
 
-pre_cmd() {
+start_pre() {
   [ -w "$LOGFILE" ] || touch "$LOGFILE"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-l $LOGFILE -a"
 PREARGS=""
 
