@@ -8,13 +8,13 @@ PROG="/opt/sbin/$PROCS"
 
 PID_FILE="/opt/var/run/$PROCS.pid"
 
-pre_cmd() {
+start_pre() {
   rm -f "PID_FILE"
   [ -d "/opt/var/spool/incron" ] || \
   mkdir -pm 0750 /opt/var/spool/incron
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS=""
 PREARGS=""
 
