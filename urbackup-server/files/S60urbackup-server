@@ -8,7 +8,7 @@ PROG="/opt/bin/$PROCS"
 
 PID_FILE="/opt/var/run/urbackup.pid"
 
-pre_cmd() {
+start_pre() {
   rm -f "$PID_FILE"
   . /opt/lib/functions.sh
   user_exists urbackup || user_add urbackup 5555
@@ -24,7 +24,7 @@ pre_cmd() {
   done
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="run -c /opt/etc/urbackup/urbackup.cfg -d -w $PID_FFILE"
 PREARGS=""
 
