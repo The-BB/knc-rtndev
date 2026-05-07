@@ -6,12 +6,12 @@ DESC="Pixel webserver"
 PROCS="pixelserv-tls"
 PROG="/opt/bin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   [ -d "/opt/var/cache/pixelserv" ] || \
   mkdir -pm 0750 /opt/var/cache/pixelserv
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS=""
 PREARGS=""
 
