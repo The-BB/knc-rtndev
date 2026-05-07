@@ -6,12 +6,12 @@ DESC="eXtensible UPnP agent (2)"
 PROCS="xupnpd2"
 PROG="/opt/sbin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   [ -d "/opt/var/lib/$PROCS" ] || \
   mkdir -pm 0750 /opt/var/lib/"$PROCS"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS=""
 PREARGS=""
 
