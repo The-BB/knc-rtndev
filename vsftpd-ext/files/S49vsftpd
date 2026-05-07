@@ -6,12 +6,12 @@ DESC="FTP server"
 PROCS="vsftpd"
 PROG="/opt/sbin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   [ -d "/opt/var/run/$PROCS" ] || \
   mkdir -pm 0755 /opt/var/run/"$PROCS"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS=""
 PREARGS=""
 
