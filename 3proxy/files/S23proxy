@@ -8,13 +8,13 @@ PROG="/opt/bin/$PROCS"
 
 PID_FILE="/opt/var/run/$PROCS.pid"
 
-pre_cmd() {
+start_pre() {
   rm -f "$PID_FILE"
   [ -d "/opt/var/lib/$PROCS" ] || \
   mkdir -pm 0750 /opt/var/lib/"$PROCS"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="/opt/etc/$PROCS/$PROCS.cfg"
 PREARGS=""
 
