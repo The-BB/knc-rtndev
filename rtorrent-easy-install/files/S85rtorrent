@@ -6,13 +6,13 @@ DESC="rtorrent WEB UI"
 PROCS="rtorrent"
 PROG="/opt/bin/$PROCS"
 
-pre_cmd() {
+start_pre() {
   rm -f /opt/var/run/"$PROCS"/rpc.socket
   [ -d "/opt/var/run/$PROCS" ] || \
   mkdir -pm 0750 /opt/var/run/"$PROCS"
 }
 
-PRECMD="pre_cmd"
+PRECMD="start_pre"
 ARGS="-D -n -o import=/opt/etc/$PROCS/$PROCS.conf"
 PREARGS="screen -dmS $PROCS"
 
