@@ -6,7 +6,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cmake
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=1
+# libjsoncpp bumped
+PKG_RELEASE:=2
 
 PKG_VERSION_MAJOR:=$(subst $(space),.,$(wordlist 1,2,$(subst .,$(space),$(PKG_VERSION))))
 
