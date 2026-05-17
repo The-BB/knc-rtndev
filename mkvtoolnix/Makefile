@@ -4,13 +4,12 @@
 #
 # This is the last version without qtcore dependency (58.0.0)
 
-# XXX boost bumped
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mkvtoolnix
 PKG_VERSION:=77.0
-PKG_RELEASE:=4
+# boost bumped
+PKG_RELEASE:=5
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://mkvtoolnix.download/sources
