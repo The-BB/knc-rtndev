@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=go
-PKG_VERSION:=1.26.3
+PKG_VERSION:=1.26.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=go$(PKG_VERSION).src.tar.gz
@@ -14,7 +14,7 @@ PKG_SOURCE_URL:= \
 		https://golang.google.cn/dl/ \
 		https://mirrors.nju.edu.cn/golang/ \
 		https://mirrors.ustc.edu.cn/golang/
-PKG_HASH:=1c646875d0aa8799133184ed57cf79ff24bdefe8c8820470602a9d3d6d9192b8
+PKG_HASH:=4f668a32fbfc1132e6a881fb968c2f1dada631492a339211735fbb255a42602d
 
 PKG_MAINTAINER:=Entware team, https://entware.net
 PKG_LICENSE:=BSD-3-Clause
