@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qpdf
 PKG_VERSION:=12.2.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/qpdf/qpdf/tar.gz/refs/tags/v$(PKG_VERSION)?
@@ -30,7 +30,7 @@ define Package/qpdf
   SUBMENU:=Printing
   TITLE:=PDF transformations utility
   URL:=https://qpdf.sourceforge.io/
-  DEPENDS:=+libgnutls +libjpeg +libstdcpp +zlib
+  DEPENDS:=+libgnutls +libjpeg +libstdcpp +zlib $(ATOMIC64_DEPENDS)
 endef
 
 define Package/qpdf/description
