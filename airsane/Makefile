@@ -6,7 +6,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=airsane
 PKG_VERSION:=0.4.6
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
@@ -26,7 +26,7 @@ define Package/airsane
   CATEGORY:=Utilities
   TITLE:=AirScan Scanner publisher
   URL:=$(PKG_SOURCE_URL)
-  DEPENDS:=+libavahi-client +sane-libs
+  DEPENDS:=+libavahi-client +sane-libs $(ATOMIC64_DEPENDS)
 endef
 
 define Package/airsane/description
