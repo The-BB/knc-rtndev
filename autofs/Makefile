@@ -56,6 +56,15 @@ define Package/autofs/config
   source "$(SOURCE)/Config.in"
 endef
 
+# ../include/hash.h:27:2: error: #error Wordsize not 32 or 64
+ifeq ($(CONFIG_USE_MUSL),y)
+  ifeq ($(CONFIG_ARCH_64BIT),y)
+	TARGET_CFLAGS += -D__WORDSIZE=64
+  else
+	TARGET_CFLAGS += -D__WORDSIZE=32
+  endif
+endif
+
 CONFIGURE_ARGS += \
 	--enable-sloppy-mount \
 	--enable-no-canon-umount \
