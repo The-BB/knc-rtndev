@@ -49,7 +49,8 @@ TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/opt/include
 
 TARGET_LDFLAGS += \
-	-Wl,-rpath,/opt/lib/accel-ppp
+	-Wl,-rpath,/opt/lib/accel-ppp \
+	-latomic
 
 define Package/accel-ppp/conffiles
 /opt/etc/accel-ppp.conf
